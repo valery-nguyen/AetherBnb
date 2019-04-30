@@ -38,8 +38,6 @@
 }
 
 .nav-menu {
-    /* display: flex;
-    justify-content: flex-end; */
     float: right;
     padding-right: 40px;
 }
@@ -47,4 +45,7 @@
 .header-search-field {
     margin-left: 30px;
     padding: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    border-radius: 4px !important;
+    width: 350px;
 }

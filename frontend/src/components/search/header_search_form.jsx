@@ -44,7 +44,6 @@ class HeaderSearchForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input className="header-search-field" type="search" placeholder="Search" />
-          {/* {this.hasActiveSearch()} */}
         </form>
           {options}
       </div>

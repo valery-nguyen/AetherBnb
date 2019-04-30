@@ -1,7 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './spots.scss'
+import SpotMap from './spot_map';
+
 class Spot extends React.Component {
+  
   constructor(props) {
     super(props);
   }
@@ -13,7 +16,6 @@ class Spot extends React.Component {
   render() {
     let spotsList = [];
     
-
     return (
       <div>
         <h2 id="spots-list-header">Explore all *** homes</h2>
