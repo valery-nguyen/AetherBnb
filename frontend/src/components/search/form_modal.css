@@ -2,8 +2,17 @@
   display: none;
 }
 
+.dates-modal {
+  display: none;
+}
+
+.price-range-modal {
+  display: none;
+}
+
 .show-modal { 
   display: block;
-  height: 500px;
-  width: 500px;
+  height: auto;
+  width: auto;
+  border: 1px solid black;
 }

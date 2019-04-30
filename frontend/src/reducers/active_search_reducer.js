@@ -10,8 +10,10 @@ const defaultState = {
     children: 0,
     infants: 0
   },
-  priceMin: null,
-  priceMax: null
+  priceRange: {
+    minValue: 0,
+    maxValue: 1000
+  }
 };
 
 //this slice of state is not persisting!
