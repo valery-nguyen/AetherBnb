@@ -1,12 +1,29 @@
-.NavBar {
+.nav-bar {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 64px; 
+    top: 0px;
+    left: 0px;
+    border-bottom: 1px solid rgb(220, 224, 224);
+    width: 100%;
 }
 
-.NavBar button {
-    height: 20px;
+.nav-bar-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 20px;
 }
+
+.main-window {
+    margin-top: 128px; 
+}
+
+/* .nav-bar button {
+    height: 20px;
+} */
 
 .Links1 {
     width: 100px;
@@ -18,4 +35,16 @@
     width: 400px;
     display: flex;
     justify-content: space-between;
+}
+
+.nav-menu {
+    /* display: flex;
+    justify-content: flex-end; */
+    float: right;
+    padding-right: 40px;
+}
+
+.header-search-field {
+    margin-left: 30px;
+    padding: 5px;
 }

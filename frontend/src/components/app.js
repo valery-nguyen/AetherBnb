@@ -12,6 +12,7 @@ import SpotsContainer from './spots/spots_container';
 const App = () => (
   <div>
     <NavBarContainer />
+    <div className="main-window">
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
@@ -19,6 +20,7 @@ const App = () => (
       <Route path="/spots" component={SpotsContainer} />
       {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
     </Switch>
+    </div>
   </div>
 );
 
