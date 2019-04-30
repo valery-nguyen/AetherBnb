@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
+import HeaderSearchFormContainer from './../search/header_search_form_container';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
+
           <Link to={'/profile'}>Profile</Link>
           <button onClick={this.logoutUser}>Logout</button>
         </div>
@@ -36,6 +38,7 @@ class NavBar extends React.Component {
     return (
       <div>
         <h1>new_project</h1>
+        <HeaderSearchFormContainer />
         {this.getLinks()}
       </div>
     );
