@@ -9,6 +9,8 @@ import { logout } from './actions/session_actions';
 
 import axios from 'axios';
 
+import { fetchSpots } from './actions/spots_actions';
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -36,4 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // remove the commands below after development
   window.axios = axios;
+  window.fetchSpots = fetchSpots;
+  window.dispatch = store.dispatch;
 });
