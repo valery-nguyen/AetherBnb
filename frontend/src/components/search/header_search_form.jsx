@@ -1,5 +1,5 @@
 import React from 'react';
-import FormOptionsContainer from './form_options_container';
+import FormOptions from './form_options';
 
 class HeaderSearchForm extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class HeaderSearchForm extends React.Component {
 
   hasActiveSearch() {
     if ( this.props.activeSearch.active ) {
-      return (<FormOptionsContainer />)
+      return (<FormOptions />)
     }
   }
   
@@ -32,8 +32,9 @@ class HeaderSearchForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input type="search" placeholder="search" />
-          {this.hasActiveSearch}
+          {/* {this.hasActiveSearch()} */}
         </form>
+        <div><FormOptions/></div>
       </div>
     )
   }
