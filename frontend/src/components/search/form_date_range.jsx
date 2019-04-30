@@ -34,7 +34,7 @@ class FormDateRange extends React.Component {
     return (
       
       <div>
-        <button onClick={() => this.toggleModal()}>Dates</button>
+        <button className="modal-button" onClick={() => this.toggleModal()}>Dates</button>
         <div className="dates-modal" id="dates-modal" >
           <form >
 

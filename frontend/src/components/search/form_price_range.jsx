@@ -40,7 +40,7 @@ class FormPriceRange extends React.Component {
     return (
 
       <div>
-        <button onClick={() => this.toggleModal()}>Price</button>
+        <button className="modal-button" onClick={() => this.toggleModal()}>Price</button>
         <div className="price-range-modal" id="price-range-modal" >
           <form >
 

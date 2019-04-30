@@ -7,7 +7,7 @@ import FormPriceRangeContainer from './form_price_range_container';
 const FormOptions = () => {
 
   return ( 
-    <div className="form-options-modal" >  
+    <div className="form-options-wrapper" >  
       <FormDateRangeContainer />
       <FormGuestCountContainer />
       <FormPriceRangeContainer />

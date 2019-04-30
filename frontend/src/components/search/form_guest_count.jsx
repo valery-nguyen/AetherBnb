@@ -75,7 +75,7 @@ class FormGuestCount extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.toggleModal()}>Guests</button>
+        <button className="modal-button" onClick={() => this.toggleModal()}>Guests</button>
         <div className="guests-modal" id="guests-modal" >
           <form >
             
