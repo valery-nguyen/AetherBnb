@@ -4,8 +4,9 @@ import FormGuestCount from './form_guest_count';
 import { receiveGuestCount } from './../../actions/search_actions';
 
 const mapStateToProps = state => {
+
   return ({
-  guestCount: state.ui.active_session.guest_count});
+  guestCount: state.ui.activeSearch.guestCount});
 
   };
 

@@ -6,8 +6,8 @@ import jwt_decode from 'jwt-decode';
 
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-
 import axios from 'axios';
+import 'react-dates/initialize';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(<Root store={store} />, root);
 
-
+  window.getState = store.getState;
   // remove the commands below after development
   window.axios = axios;
 });

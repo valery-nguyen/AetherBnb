@@ -3,14 +3,20 @@ import { merge } from 'lodash';
 
 const defaultState = { 
   active: false, 
-  start_date: null,
-  end_date: null,
-  guest_gount: 1,
-  price_min: null,
-  price_max: null
+  startDate: null,
+  endDate: null,
+  guestCount: {
+    adults: 0,
+    children: 0,
+    infants: 0
+  },
+  priceMin: null,
+  priceMax: null
 };
 
-const ActiveSessionReducer = (state = defaultState, action) => {
+//this slice of state is not persisting!
+
+const ActiveSearchReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_DATE_RANGE:
@@ -18,11 +24,11 @@ const ActiveSessionReducer = (state = defaultState, action) => {
     case RECEIVE_PRICE_RANGE:
       return merge({}, state, action.priceRange);
     case RECEIVE_GUEST_COUNT:
-      return merge({}, state, { guest_count: action.count });
+      return merge({}, state, { guestCount: action.count });
     default:
       return state;
   }
 };
 
-export default ActiveSessionReducer;
+export default ActiveSearchReducer;
 

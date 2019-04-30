@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import activeSession from './active_session_reducer';
+import activeSearch from './active_search_reducer';
 
 const UIReducer = combineReducers({
-  active_session: activeSession,
+  activeSearch: activeSearch,
 });
 
 export default UIReducer;
