@@ -71,7 +71,8 @@ class FormGuestCount extends React.Component {
     modal.classList.toggle("show-modal");
   }
 
-  clearGuestCount() {
+  clearGuestCount(e) {
+    e.preventDefault();
     this.setState({
       adults: 0,
       children: 0,
@@ -79,10 +80,13 @@ class FormGuestCount extends React.Component {
     });
   }
 
-  applyGuestCount() {
+  applyGuestCount(e) {
+    e.preventDefault();
     let total = this.state.adults + this.state.children + this.state.infants;
-    if (total == 0) this.state.adults = 1;
+    if (total === 0) this.setState({ adults: 1 });
     this.props.receiveGuestCount(this.state);
+    this.props.fetchSpots(this.props.activeSearch);
+
   }
 
   render() {
@@ -122,8 +126,8 @@ class FormGuestCount extends React.Component {
             </div>
 
             <div className="modal-buttons">
-              <button className="date-range-picker-button" onClick={() => this.clearGuestCount()}>Clear</button>
-              <button className="date-range-picker-button" onClick={() => this.applyGuestCount()}>Apply</button>
+              <button className="date-range-picker-button" onClick={(e) => this.clearGuestCount(e)}>Clear</button>
+              <button className="date-range-picker-button" onClick={(e) => this.applyGuestCount(e)}>Apply</button>
             </div>
           </form>
         </div>

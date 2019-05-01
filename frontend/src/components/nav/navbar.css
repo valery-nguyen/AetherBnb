@@ -8,6 +8,7 @@
     left: 0px;
     border-bottom: 1px solid rgb(220, 224, 224);
     width: 100%;
+    background-color: white;
 }
 
 .nav-bar-left {
@@ -43,7 +44,7 @@
     height: 100%;
 }
 
-.header-search-field {
+.location-search-input {
     margin-left: 30px;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -80,8 +81,4 @@
 
 .DateRangePickerInput_arrow_svg {
     display: none;
-}
-
-.DateInput_input {
-
 }

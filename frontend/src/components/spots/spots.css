@@ -179,3 +179,18 @@
   word-break: break-word;
   width: 100%;
 }
+
+.spots-and-map-div {
+  display: flex;
+}
+
+.outer-map-div {
+  position: fixed;
+  right: 0px;
+  width: 500px;
+  height: 100px;
+}
+
+.spots-index-map-active {
+  margin-right: 500px;
+}
