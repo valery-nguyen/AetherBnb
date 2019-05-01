@@ -22,6 +22,14 @@ class FormPriceRange extends React.Component {
 
   toggleModal() {
     let modal = document.getElementById("price-range-modal");
+    let dateModal = document.getElementById("dates-modal");
+    let guestModal = document.getElementById("guests-modal");
+    if (dateModal.classList.contains("show-modal")) {
+      dateModal.classList.remove("show-modal");
+    }
+    if (guestModal.classList.contains("show-modal")) {
+      guestModal.classList.remove("show-modal");
+    }
     modal.classList.toggle("show-modal");
   }
 

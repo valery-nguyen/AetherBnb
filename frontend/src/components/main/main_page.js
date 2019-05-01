@@ -1,12 +1,12 @@
 import React from 'react';
-import SpotMap from './../map/spot_map';
+import SpotMapContainer from './../map/spot_map_container';
 
 class MainPage extends React.Component {
 
   render() {
     return (
-      <div>
-        {/* <SpotMap/> */}
+      <div className="map">
+        <SpotMapContainer/>
       </div>
     );
   }

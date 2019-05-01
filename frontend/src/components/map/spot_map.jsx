@@ -1,8 +1,10 @@
 import './spot_map.css';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-const google = window.google;
+import MarkerManager from './../../util/marker_manager';
 
+
+const google = window.google;
 
 class SpotMap extends React.Component {
   constructor(props) {
@@ -10,7 +12,6 @@ class SpotMap extends React.Component {
   }
 
   componentDidMount() {
-    // set the map to show SF
 
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 }, // this is SF
@@ -19,6 +20,13 @@ class SpotMap extends React.Component {
 
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers(this.props.spots);
+
+  }
+
+  componentDidUpdate() {
+    this.MarkerManager.updateMarkers(this.props.spots);
   }
 
   render() {

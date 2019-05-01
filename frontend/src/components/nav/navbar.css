@@ -40,6 +40,7 @@
 .nav-menu {
     float: right;
     padding-right: 40px;
+    height: 100%;
 }
 
 .header-search-field {
@@ -51,12 +52,29 @@
     border: 1px solid #cccccc;
 }
 
-.nav-menu-buttons{
+.nav-menu-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.nav-menu-button{
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  color: #484848 !important;
-  text-decoration: none !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #484848;
+  text-decoration: none;
+  line-height: 64px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 100%;
+}
+
+.nav-menu-button:hover {
+    cursor: pointer;
+    border-bottom: 2px solid rgb(118, 118, 118);
 }
 
 

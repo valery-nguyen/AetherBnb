@@ -55,6 +55,14 @@ class FormGuestCount extends React.Component {
 
   toggleModal() {
     let modal = document.getElementById("guests-modal");
+    let dateModal = document.getElementById("dates-modal");
+    let priceModal = document.getElementById("price-range-modal");
+    if(dateModal.classList.contains("show-modal")) {
+      dateModal.classList.remove("show-modal");
+    }
+    if (priceModal.classList.contains("show-modal")) {
+      priceModal.classList.remove("show-modal");
+    }
     modal.classList.toggle("show-modal");
   }
 
