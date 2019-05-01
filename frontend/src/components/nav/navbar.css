@@ -44,10 +44,11 @@
 
 .header-search-field {
     margin-left: 30px;
-    padding: 5px;
+    padding: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
     border-radius: 4px !important;
     width: 350px;
+    border: 1px solid #cccccc;
 }
 
 .nav-menu-buttons{
