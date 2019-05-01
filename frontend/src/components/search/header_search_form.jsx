@@ -18,14 +18,14 @@ class HeaderSearchForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.activateSearch();
-    this.props.fetchSpots({
+    let options = {
       searchText: e.target.value,
       startDate: this.props.activeSearch.startDate,
       endDate: this.props.activeSearch.endDate,
       guestCount: this.props.activeSearch.guestCount,
       priceRange: this.props.activeSearch.priceRange
-    });
-    // .then do something!
+    };
+    this.props.fetchSpots(options);
   }
 
   activateSearch() {

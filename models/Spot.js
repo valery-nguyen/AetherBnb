@@ -13,11 +13,15 @@ const SpotSchema = new Schema({
     type: String,
     required: true
   },
-  // images: [{ type: ObjectId, ref: 'Spot' }],
-  // description: {
-  //   type: String,
-  //   required: true
-  // },
+  images: [{ 
+    type: SchemaTypes.ObjectId, 
+    ref: 'Image',
+    default: []
+  }],
+  description: {
+    type: String,
+    required: true
+  },
   lng: {
     type: SchemaTypes.Double,
     required: true
@@ -56,4 +60,4 @@ const SpotSchema = new Schema({
   }
 });
 
-module.exports = Spot = mongoose.model('spots', SpotSchema);
+module.exports = Spot = mongoose.model('Spot', SpotSchema);
