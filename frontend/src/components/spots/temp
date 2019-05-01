@@ -10,7 +10,6 @@
 
             for (let x = 0; x < 10; x++) {
       let spot = this.props.spots[0];
-      debugger
         spotsList.push( < li class="spot-list-item" >
           {/* add photos here */ }
           < p id = "spot-list-description" > { spot.description }</p >

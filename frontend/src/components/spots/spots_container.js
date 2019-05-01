@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSpots } from '../../actions/spots_actions';
+import { fetchSpots, fetchSpot } from '../../actions/spots_actions';
 import Spots from './spots';
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSpots: (data) => dispatch(fetchSpots(data))
+    fetchSpots: (data) => dispatch(fetchSpots(data)),
+    fetchSpot: (id) => dispatch(fetchSpot(id))
   };
 };
 

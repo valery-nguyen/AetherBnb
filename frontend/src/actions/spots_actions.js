@@ -7,14 +7,15 @@ export const receiveSpots = spots => ({
   spots
 });
 
-export const fetchSpots = data => dispatch => (
-  APIUtil.fetchSpots(data)
+export const fetchSpots = data => dispatch => {
+  return APIUtil.fetchSpots(data)
     .then(spots => dispatch(receiveSpots(spots)))
     .catch(err => console.log(err))
-);
+};
 
-export const fetchSpot = id => dispatch => (
-  APIUtil.fetchSpot(id)
+export const fetchSpot = id => dispatch => {
+  
+  return APIUtil.fetchSpot(id)
     .then(spot => dispatch(receiveSpots(spot)))
     .catch(err => console.log(err))
-);
+};
