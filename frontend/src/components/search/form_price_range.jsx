@@ -54,8 +54,8 @@ class FormPriceRange extends React.Component {
             <div>${this.state.minValue}</div>  <div>${this.state.maxValue}</div>
 
             <br />
-            <button onClick={() => this.clearPriceRange()}>Clear</button>
-            <button onClick={() => this.applyPriceRange()}>Apply</button>
+            <button className="date-range-picker-button" onClick={() => this.clearPriceRange()}>Clear</button>
+            <button className="date-range-picker-button" onClick={() => this.applyPriceRange()}>Apply</button>
 
           </form>
         </div>

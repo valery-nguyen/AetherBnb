@@ -79,21 +79,39 @@ class FormGuestCount extends React.Component {
         <div className="guests-modal" id="guests-modal" >
           <form >
             
-            <button onClick={() => this.decrementValue("adults")}>-</button>
-            <h5>Adults {this.state.adults}</h5>
-            <button onClick={() => this.incrementValue("adults")}>+</button> 
-            <br/>
-            <button onClick={() => this.decrementValue("children")}>-</button>
-            <h5> Children {this.state.children}</h5>
-            <button onClick={() => this.incrementValue("children")}>+</button> 
-            <br/>
-            <button onClick={() => this.decrementValue("infants")}>-</button>
-            <h5> Infants {this.state.infants}</h5>
-            <button onClick={() => this.incrementValue("infants")}>+</button> 
+            <div className="incrementer">
+              <h5>Adults</h5>
+              <div className="increment-buttons">
+                <button className="increment-button" onClick={() => this.decrementValue("adults")}>-</button>
+                <h5> {this.state.adults}+</h5>
+                <button className="increment-button" onClick={() => this.incrementValue("adults")}>+</button> 
+              </div>
+            </div>
 
-            <button onClick={() => this.clearGuestCount()}>Clear</button>
-            <button onClick={() => this.applyGuestCount()}>Apply</button>
+            <div className="incrementer">
+              <h5> Children </h5>
+              <div className="increment-buttons">
+                <button className="increment-button" onClick={() => this.decrementValue("children")}>-</button>
+                <h5>{this.state.children}+</h5>
+                <button className="increment-button" onClick={() => this.incrementValue("children")}>+</button> 
+              </div>
+            </div>
             
+      
+
+            <div className="incrementer">
+              <h5> Infants </h5>
+              <div className="increment-buttons">
+                <button className="increment-button" onClick={() => this.decrementValue("infants")}>-</button>
+                <h5>{this.state.infants}+</h5>
+                <button className="increment-button" onClick={() => this.incrementValue("infants")}>+</button> 
+              </div>
+            </div>
+
+            <div className="modal-buttons">
+              <button className="date-range-picker-button" onClick={() => this.clearGuestCount()}>Clear</button>
+              <button className="date-range-picker-button" onClick={() => this.applyGuestCount()}>Apply</button>
+            </div>
           </form>
         </div>
       </div>

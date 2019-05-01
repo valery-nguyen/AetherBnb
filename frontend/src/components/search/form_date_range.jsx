@@ -49,9 +49,10 @@ class FormDateRange extends React.Component {
             />
 
             <br/>
-            <button onClick={() => this.clearDateRange()}>Clear</button>
-            <button onClick={() => this.applyDateRange()}>Apply</button>
-
+            <div className="modal-buttons" >
+              <button className="date-range-picker-button" onClick={() => this.clearDateRange()}>Clear</button>
+              <button className="date-range-picker-button" onClick={() => this.applyDateRange()}>Apply</button>
+            </div>
           </form>
         </div>
       </div>
