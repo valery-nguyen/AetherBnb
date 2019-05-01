@@ -1,4 +1,5 @@
 import React from 'react';
+import './splash_page.css'
 
 class MainPage extends React.Component {
 
@@ -6,7 +7,8 @@ class MainPage extends React.Component {
     // debugger;
     return (
       <div className="splash-page">
-        {/* <img alt="" id="spot-list-photo" src={spot.images[0].img_url} /> */}
+      <h1 className="leave-me-alone" >Leave me the fuck alone</h1>
+        <img alt="" className="splash-page" src='http://www.vythiriresort.com/images/gallery/high-resolution/tree_house.jpg' />
       </div>
     );
   }

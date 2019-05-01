@@ -13,7 +13,7 @@ import SpotContainer from "./spots/spot_container";
 const App = () => (
   <div>
     <NavBarContainer />
-    <div className="main-window">
+    <div >
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

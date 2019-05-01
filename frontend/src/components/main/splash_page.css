@@ -1,0 +1,20 @@
+.splash-page {
+  height: 100vh;
+  width: 100vw;
+  min-height: 900px;
+  min-width: 1600px;
+  margin-top: 32px;
+  background-size: contain;
+}
+
+.leave-me-alone {
+  margin-top: 150px;
+  margin-left: 650px;
+  font-size: 60px;
+  position: fixed;
+  z-index: 10;
+  color: white;
+  min-width: 700px;
+  font-style: italic;
+  opacity: .7;
+}
