@@ -1,0 +1,11 @@
+#map-container {
+  height: 500px;
+  width: 500px;
+  z-index: 1;
+}
+
+.map {
+  display: flex;
+  justify-content: flex-end;
+  /* min-width: 500px; */
+}

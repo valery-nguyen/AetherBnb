@@ -1,14 +1,12 @@
 import React from 'react';
+import SpotMapContainer from './../map/spot_map_container';
 
 class MainPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>AetherBnb</h1>
-        <footer>
-          Copyright &copy; 2019 AetherBnb
-        </footer>
+      <div className="map">
+        <SpotMapContainer/>
       </div>
     );
   }

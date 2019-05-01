@@ -2,33 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import HeaderSearchFormContainer from './../search/header_search_form_container';
+import LoggedInNavMenuContainer from './logged_in_nav_menu_container';
+import LoggedOutNavMenuContainer from './logged_out_nav_menu_container';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.logoutUser = this.logoutUser.bind(this);
-    this.getLinks = this.getLinks.bind(this);
+    this.getMenuOptions = this.getMenuOptions.bind(this);
   }
 
-  logoutUser(e) {
-    e.preventDefault();
-    this.props.logout();
-  }
-
-  getLinks() {
+  getMenuOptions() {
     if (this.props.loggedIn) {
       return (
-        <div>
-
-          <Link to={'/profile'}>Profile</Link>
-          <button onClick={this.logoutUser}>Logout</button>
+        <div className="nav-menu">
+          <LoggedInNavMenuContainer/>
         </div>
       );
     } else {
       return (
-        <div>
-          <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
+        <div className="nav-menu">
+          <LoggedOutNavMenuContainer/>
         </div>
       );
     }
@@ -36,10 +29,12 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>AetherBnb</h1>
-        <HeaderSearchFormContainer />
-        {this.getLinks()}
+      <div className="nav-bar">
+        <div className="nav-bar-left">
+          <h1>A</h1>
+          <HeaderSearchFormContainer />
+        </div>
+        {this.getMenuOptions()}
       </div>
     );
   }

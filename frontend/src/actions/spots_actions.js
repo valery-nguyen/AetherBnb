@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/spots_api_util';
-
 export const RECEIVE_SPOTS = "RECEIVE_SPOTS";
 
 export const receiveSpots = spots => ({

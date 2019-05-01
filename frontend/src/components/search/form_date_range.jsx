@@ -16,6 +16,14 @@ class FormDateRange extends React.Component {
 
   toggleModal() {
     let modal = document.getElementById("dates-modal");
+    let guestModal = document.getElementById("guests-modal");
+    let priceModal = document.getElementById("price-range-modal");
+    if (guestModal.classList.contains("show-modal")) {
+      guestModal.classList.remove("show-modal");
+    }
+    if (priceModal.classList.contains("show-modal")) {
+      priceModal.classList.remove("show-modal");
+    }
     modal.classList.toggle("show-modal");
   }
 
@@ -36,7 +44,7 @@ class FormDateRange extends React.Component {
       <div>
         <button className="modal-button" onClick={() => this.toggleModal()}>Dates</button>
         <div className="dates-modal" id="dates-modal" >
-          <form >
+          <form className="">
 
             <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
@@ -49,9 +57,10 @@ class FormDateRange extends React.Component {
             />
 
             <br/>
-            <button onClick={() => this.clearDateRange()}>Clear</button>
-            <button onClick={() => this.applyDateRange()}>Apply</button>
-
+            <div className="modal-buttons" >
+              <button className="date-range-picker-button" onClick={() => this.clearDateRange()}>Clear</button>
+              <button className="date-range-picker-button" onClick={() => this.applyDateRange()}>Apply</button>
+            </div>
           </form>
         </div>
       </div>

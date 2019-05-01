@@ -5,6 +5,7 @@ class HeaderSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.hasActiveSearch = this.hasActiveSearch.bind(this);
+    this.activateSearch = this.activateSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -16,6 +17,7 @@ class HeaderSearchForm extends React.Component {
   
   handleSubmit(e){
     e.preventDefault();
+    this.activateSearch();
     let options = {
       searchText: e.target.value,
       startDate: this.props.activeSearch.startDate,
@@ -24,18 +26,25 @@ class HeaderSearchForm extends React.Component {
       priceRange: this.props.activeSearch.priceRange
     };
     this.props.fetchSpots(options);
-    // .then do something!
+  }
+
+  activateSearch() {
+    this.props.receiveSearchStatus(true);
   }
 
   render() {
     //Implement onChange on the input for autocompleting to locations
+    let options;
+    if(this.props.activeSearch.active) {
+      options = <div><FormOptions /></div>;
+    }
+
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="search" placeholder="search" />
-          {/* {this.hasActiveSearch()} */}
+          <input className="header-search-field" type="search" placeholder="Search" />
         </form>
-        <div><FormOptions/></div>
+          {options}
       </div>
     )
   }

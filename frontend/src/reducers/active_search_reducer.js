@@ -1,4 +1,4 @@
-import { RECEIVE_DATE_RANGE, RECEIVE_PRICE_RANGE, RECEIVE_GUEST_COUNT } from './../actions/search_actions';
+import { RECEIVE_DATE_RANGE, RECEIVE_PRICE_RANGE, RECEIVE_GUEST_COUNT, RECEIVE_SEARCH_STATUS } from './../actions/search_actions';
 import { merge } from 'lodash';
 
 const defaultState = { 
@@ -27,6 +27,8 @@ const ActiveSearchReducer = (state = defaultState, action) => {
       return merge({}, state, action.priceRange);
     case RECEIVE_GUEST_COUNT:
       return merge({}, state, { guestCount: action.count });
+    case RECEIVE_SEARCH_STATUS:
+      return merge({}, state, { active: action.active });
     default:
       return state;
   }
