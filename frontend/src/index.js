@@ -22,8 +22,6 @@ ThemedStyleSheet.registerTheme({
   ...ReactDatesDefaultTheme,
 });
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 

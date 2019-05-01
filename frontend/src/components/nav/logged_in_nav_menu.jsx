@@ -14,7 +14,7 @@ class LoggedInNavMenu extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="nav-menu-buttons">
         <Link to={'/profile'}>Profile</Link>
         <button onClick={this.logoutUser}>Logout</button>
       </div>

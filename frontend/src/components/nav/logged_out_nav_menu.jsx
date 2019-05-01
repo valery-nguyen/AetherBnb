@@ -10,9 +10,9 @@ class LoggedOutNavMenu extends React.Component {
   render() {
     return (
 
-      <div>
-        <Link to={'/signup'}> <button>Signup</button> </Link>
-        <Link to={'/login'}> <button>Login</button> </Link>
+      <div className="nav-menu-buttons">
+        <Link to={'/signup'}>Signup</Link>
+        <Link to={'/login'}>Login</Link>
       </div>
 
     );

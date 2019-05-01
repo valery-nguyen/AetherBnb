@@ -36,7 +36,7 @@ class FormDateRange extends React.Component {
       <div>
         <button className="modal-button" onClick={() => this.toggleModal()}>Dates</button>
         <div className="dates-modal" id="dates-modal" >
-          <form >
+          <form className="">
 
             <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,

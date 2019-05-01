@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './spots.scss'
-import SpotMap from './spot_map';
+
 
 class Spot extends React.Component {
   
