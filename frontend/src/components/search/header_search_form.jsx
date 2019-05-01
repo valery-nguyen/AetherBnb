@@ -5,6 +5,7 @@ class HeaderSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.hasActiveSearch = this.hasActiveSearch.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   hasActiveSearch() {
@@ -15,14 +16,14 @@ class HeaderSearchForm extends React.Component {
   
   handleSubmit(e){
     e.preventDefault();
-    this.props.fetchSpots({
-      search_text: e.target.value,
-      start_date: this.props.activeSearch.start_date,
-      end_date: this.props.activeSearch.end_date,
-      guest_count: this.props.activeSearch.guest_count,
-      price_min: this.props.activeSearch.price_min,
-      price_max: this.props.activeSearch.price_max
-    });
+    let options = {
+      searchText: e.target.value,
+      startDate: this.props.activeSearch.startDate,
+      endDate: this.props.activeSearch.endDate,
+      guestCount: this.props.activeSearch.guestCount,
+      priceRange: this.props.activeSearch.priceRange
+    };
+    this.props.fetchSpots(options);
     // .then do something!
   }
 

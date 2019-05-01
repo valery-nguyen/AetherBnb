@@ -23,10 +23,15 @@ class FormGuestCount extends React.Component {
     switch (stateKey) {
       case ("children"):
         if (value > 5) value = 5;
+        break;
       case "infants":
         if (value > 5) value = 5;
+        break;
       case "adults":  
         if (value > 16) value = 16;
+        break;
+      default: 
+        break;
     }
     this.setState({
       [stateKey]: value 

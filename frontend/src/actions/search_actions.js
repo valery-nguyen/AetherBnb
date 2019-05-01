@@ -2,10 +2,12 @@ export const RECEIVE_DATE_RANGE = "RECEIVE_DATE_RANGE";
 export const RECEIVE_GUEST_COUNT = "RECEIVE_GUEST_COUNT";
 export const RECEIVE_PRICE_RANGE = "RECEIVE_PRICE_RANGE";
 
-export const receiveDateRange = (dateRange) => ({
+export const receiveDateRange = (dateRange) => {
+  return {
   type: RECEIVE_DATE_RANGE,
   dateRange
-});
+  }
+};
 
 export const receiveGuestCount = (count) => ({
   type: RECEIVE_GUEST_COUNT,
