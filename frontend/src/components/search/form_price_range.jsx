@@ -36,6 +36,8 @@ class FormPriceRange extends React.Component {
   applyPriceRange(e) {
     e.preventDefault();
     this.props.receivePriceRange(this.state);
+    this.props.fetchSpots(this.props.activeSearch);
+
   }
 
   clearPriceRange(e) {
@@ -60,13 +62,13 @@ class FormPriceRange extends React.Component {
               values={[0, 1000]}
               onValuesUpdated={(data) => this.changeValues(data)}
             />
-            
-            <div>${this.state.minValue}</div>  <div>${this.state.maxValue}</div>
-
-            <br />
-            <button className="date-range-picker-button" onClick={(e) => this.clearPriceRange(e)}>Clear</button>
-            <button className="date-range-picker-button" onClick={(e) => this.applyPriceRange(e)}>Apply</button>
-
+            <div className="modal-price-range">
+              <div>${this.state.minValue}</div>  <div>${this.state.maxValue}</div>
+            </div>
+            <div className="modal-buttons">
+              <button className="date-range-picker-button" onClick={(e) => this.clearPriceRange(e)}>Clear</button>
+              <button className="date-range-picker-button" onClick={(e) => this.applyPriceRange(e)}>Apply</button>
+            </div>
           </form>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './navbar.css';
-import HeaderSearchFormContainer from './../search/header_search_form_container';
+import AutoCompleteContainer from './../search/auto_complete_container';
 import LoggedInNavMenuContainer from './logged_in_nav_menu_container';
 import LoggedOutNavMenuContainer from './logged_out_nav_menu_container';
 
@@ -32,7 +31,7 @@ class NavBar extends React.Component {
       <div className="nav-bar">
         <div className="nav-bar-left">
           <h1>A</h1>
-          <HeaderSearchFormContainer />
+          <AutoCompleteContainer />
         </div>
         {this.getMenuOptions()}
       </div>

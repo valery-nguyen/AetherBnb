@@ -2,26 +2,28 @@ const google = window.google;
 
 export default class MarkerManager {
   constructor(map) {
+    debugger;
     this.map = map;
     this.markers = {};
-
   }
 
   updateMarkers(spots) {
     console.log('updating map');
     spots.forEach((spot) => {
       if (!Object.keys(this.markers).includes(spot.id)) {
-        this.createMarkerFromBench(spot);
+        this.createMarkerFromSpot(spot);
       }
     });
   }
 
-  createMarkerFromBench(spot) {
-    const pos = new google.maps.LatLng(spot.lat, spot.lng);
+  createMarkerFromSpot(spot) {
+    // debugger;
+    // const pos = new google.maps.LatLng(spot.lat, spot.lng);
+    const position = { lat: spot.lat, lng: spot.lng };
     const marker = new google.maps.Marker({
-      pos,
+      position,
       map: this.map,
-      spotId: spot.id
+      spotId: spot._id
     });
     // marker.addListener('click', () => this.handleClick(bench));
     this.markers[marker.spotId] = marker;

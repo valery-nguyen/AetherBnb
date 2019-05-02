@@ -1,12 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import ReservationFormContainer from './reservation_form_container';
-class SpotShow extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
+class SpotShow extends React.Component {
   componentDidMount() {
     if (!this.props.spot) {
       this.props.fetchSpot(this.props.spot_id);

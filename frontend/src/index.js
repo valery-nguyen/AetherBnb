@@ -7,6 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import axios from 'axios';
 
+
 import 'rheostat/css/rheostat.css';
 import 'react-dates/lib/css/_datepicker.css';
 import './components/spots/spots.css';

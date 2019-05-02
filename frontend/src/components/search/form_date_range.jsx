@@ -42,7 +42,7 @@ class FormDateRange extends React.Component {
 
   render() {
     return (
-      
+
       <div>
         <button className="modal-button" onClick={() => this.toggleModal()}>Dates</button>
         <div className="dates-modal" id="dates-modal" >
@@ -58,7 +58,7 @@ class FormDateRange extends React.Component {
               onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
             />
 
-            <br/>
+            <br />
             <div className="modal-buttons" >
               <button className="date-range-picker-button" onClick={(e) => this.clearDateRange(e)}>Clear</button>
               <button className="date-range-picker-button" onClick={(e) => this.applyDateRange(e)}>Apply</button>
@@ -71,4 +71,3 @@ class FormDateRange extends React.Component {
 }
 
 export default FormDateRange;
-

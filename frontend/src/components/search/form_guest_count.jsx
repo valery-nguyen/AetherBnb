@@ -27,16 +27,16 @@ class FormGuestCount extends React.Component {
       case "infants":
         if (value > 5) value = 5;
         break;
-      case "adults":  
+      case "adults":
         if (value > 16) value = 16;
         break;
-      default: 
+      default:
         break;
     }
     this.setState({
-      [stateKey]: value 
+      [stateKey]: value
     });
-    
+
     this.addAdults();
   }
 
@@ -54,7 +54,7 @@ class FormGuestCount extends React.Component {
       value = 0;
     }
     this.setState({
-      [stateKey]: value 
+      [stateKey]: value
     });
   }
 
@@ -62,7 +62,7 @@ class FormGuestCount extends React.Component {
     let modal = document.getElementById("guests-modal");
     let dateModal = document.getElementById("dates-modal");
     let priceModal = document.getElementById("price-range-modal");
-    if(dateModal.classList.contains("show-modal")) {
+    if (dateModal.classList.contains("show-modal")) {
       dateModal.classList.remove("show-modal");
     }
     if (priceModal.classList.contains("show-modal")) {
@@ -93,7 +93,7 @@ class FormGuestCount extends React.Component {
         <button className="modal-button" onClick={() => this.toggleModal()}>Guests</button>
         <div className="guests-modal" id="guests-modal" >
           <form >
-            
+
             <div className="incrementer">
               <h5>Adults</h5>
               <div className="increment-buttons">
@@ -111,8 +111,8 @@ class FormGuestCount extends React.Component {
                 <button className="increment-button" onClick={(e) => { e.preventDefault(); this.incrementValue("children")}}>+</button> 
               </div>
             </div>
-            
-      
+
+
 
             <div className="incrementer">
               <h5> Infants </h5>

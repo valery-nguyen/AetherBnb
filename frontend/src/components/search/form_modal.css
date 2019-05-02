@@ -50,6 +50,7 @@
 
 .form-options-wrapper {
   border-bottom: 1px solid rgb(220, 224, 224);
+  border-top: 1px solid rgb(220, 224, 224);; 
   width: 100%;
   position: fixed;
   top: 64px;
@@ -59,6 +60,8 @@
   padding-bottom: 10px;
   padding-top: 10px;
   padding-left: 63px;
+  background-color: white;
+
 }
 
 .date-range-picker-button {
@@ -101,5 +104,12 @@
   border-color: rgb(7, 146, 148);
   border-width: 1px;
   color: rgb(7, 146, 148);
+}
+
+.modal-price-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
