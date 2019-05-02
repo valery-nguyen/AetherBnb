@@ -71,7 +71,8 @@ class FormGuestCount extends React.Component {
     modal.classList.toggle("show-modal");
   }
 
-  clearGuestCount() {
+  clearGuestCount(e) {
+    e.preventDefault();
     this.setState({
       adults: 0,
       children: 0,
@@ -79,9 +80,10 @@ class FormGuestCount extends React.Component {
     });
   }
 
-  applyGuestCount() {
+  applyGuestCount(e) {
+    e.preventDefault();
     let total = this.state.adults + this.state.children + this.state.infants;
-    if (total == 0) this.state.adults = 1;
+    if (total === 0) this.state.adults = 1;
     this.props.receiveGuestCount(this.state);
   }
 
@@ -95,18 +97,18 @@ class FormGuestCount extends React.Component {
             <div className="incrementer">
               <h5>Adults</h5>
               <div className="increment-buttons">
-                <button className="increment-button" onClick={() => this.decrementValue("adults")}>-</button>
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.decrementValue("adults")}}>-</button>
                 <h5> {this.state.adults}+</h5>
-                <button className="increment-button" onClick={() => this.incrementValue("adults")}>+</button> 
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.incrementValue("adults")}}>+</button> 
               </div>
             </div>
 
             <div className="incrementer">
               <h5> Children </h5>
               <div className="increment-buttons">
-                <button className="increment-button" onClick={() => this.decrementValue("children")}>-</button>
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.decrementValue("children")}}>-</button>
                 <h5>{this.state.children}+</h5>
-                <button className="increment-button" onClick={() => this.incrementValue("children")}>+</button> 
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.incrementValue("children")}}>+</button> 
               </div>
             </div>
             
@@ -115,15 +117,15 @@ class FormGuestCount extends React.Component {
             <div className="incrementer">
               <h5> Infants </h5>
               <div className="increment-buttons">
-                <button className="increment-button" onClick={() => this.decrementValue("infants")}>-</button>
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.decrementValue("infants")}}>-</button>
                 <h5>{this.state.infants}+</h5>
-                <button className="increment-button" onClick={() => this.incrementValue("infants")}>+</button> 
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.incrementValue("infants")}}>+</button> 
               </div>
             </div>
 
             <div className="modal-buttons">
-              <button className="date-range-picker-button" onClick={() => this.clearGuestCount()}>Clear</button>
-              <button className="date-range-picker-button" onClick={() => this.applyGuestCount()}>Apply</button>
+              <button className="date-range-picker-button" onClick={(e) => this.clearGuestCount(e)}>Clear</button>
+              <button className="date-range-picker-button" onClick={(e) => this.applyGuestCount(e)}>Apply</button>
             </div>
           </form>
         </div>

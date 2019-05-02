@@ -1,21 +1,23 @@
-// import { connect } from "react-redux";
-// //import {  } from "../../actions/spots_actions";
-// import ReservationForm from "./reservation_form";
+import { connect } from "react-redux";
+import { createBooking } from "../../actions/bookings_actions";
+import ReservationForm from "./reservation_form";
 
-// const mapStateToProps = state => {
-//   return {
-//     // spot: state.entities.spots[ownProps.match.params.id],
-//     spot_id: ownProps.match.params.id
-//   };
-// };
+const mapStateToProps = (state, ownProps) => {
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     bookSpot: bookingInfo => dispatch(fetchSpot(bookingInfo))
-//   };
-// };
+  return {
+      // user: state.session.user
+     //spot: state.entities.spots[ownProps.match.params.id],
+    // spot_id: ownProps.match.params.id
+  };
+};
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(ReservationForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    createBooking: bookingInfo => dispatch(createBooking(bookingInfo))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReservationForm);

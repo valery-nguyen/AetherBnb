@@ -10,13 +10,12 @@ import axios from 'axios';
 import 'rheostat/css/rheostat.css';
 import 'react-dates/lib/css/_datepicker.css';
 import './components/spots/spots.css';
+import './components/spots/reservation_form.css';
 
 import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import cssInterface from 'react-with-styles-interface-css';
 import RheostatDefaultTheme from 'rheostat/lib/themes/DefaultTheme';
 import ReactDatesDefaultTheme from 'react-dates/lib/theme/DefaultTheme';
-import { fetchSpots } from './actions/spots_actions';
-
 import { fetchSpots } from './actions/spots_actions';
 
 ThemedStyleSheet.registerInterface(cssInterface);

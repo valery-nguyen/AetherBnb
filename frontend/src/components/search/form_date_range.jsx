@@ -27,11 +27,13 @@ class FormDateRange extends React.Component {
     modal.classList.toggle("show-modal");
   }
 
-  applyDateRange() {
+  applyDateRange(e) {
+    e.preventDefault();
     this.props.receiveDateRange(this.state);
   }
 
-  clearDateRange() {
+  clearDateRange(e) {
+    e.preventDefault();
   this.setState({
     startDate: null,
     endDate: null
@@ -58,8 +60,8 @@ class FormDateRange extends React.Component {
 
             <br/>
             <div className="modal-buttons" >
-              <button className="date-range-picker-button" onClick={() => this.clearDateRange()}>Clear</button>
-              <button className="date-range-picker-button" onClick={() => this.applyDateRange()}>Apply</button>
+              <button className="date-range-picker-button" onClick={(e) => this.clearDateRange(e)}>Clear</button>
+              <button className="date-range-picker-button" onClick={(e) => this.applyDateRange(e)}>Apply</button>
             </div>
           </form>
         </div>

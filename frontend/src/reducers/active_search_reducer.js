@@ -6,7 +6,7 @@ const defaultState = {
   startDate: null,
   endDate: null,
   guestCount: {
-    adults: 0,
+    adults: 1,
     children: 0,
     infants: 0
   },
@@ -24,7 +24,8 @@ const ActiveSearchReducer = (state = defaultState, action) => {
     case RECEIVE_DATE_RANGE:
       return merge({}, state, action.dateRange);
     case RECEIVE_PRICE_RANGE:
-      return merge({}, state, action.priceRange);
+      // return merge({}, state, action.priceRange); //to remove: Valery
+      return merge({}, state, { priceRange: action.priceRange });
     case RECEIVE_GUEST_COUNT:
       return merge({}, state, { guestCount: action.count });
     case RECEIVE_SEARCH_STATUS:

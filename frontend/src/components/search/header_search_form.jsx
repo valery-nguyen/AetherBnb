@@ -9,6 +9,18 @@ class HeaderSearchForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    const inputEl = document.getElementById("header-search-input");
+    let options = {
+      searchText: inputEl.value,
+      startDate: this.props.activeSearch.startDate,
+      endDate: this.props.activeSearch.endDate,
+      guestCount: this.props.activeSearch.guestCount,
+      priceRange: this.props.activeSearch.priceRange
+    };
+    this.props.fetchSpots(options);
+  }
+
   hasActiveSearch() {
     if ( this.props.activeSearch.active ) {
       return (<FormOptions />)
@@ -42,7 +54,7 @@ class HeaderSearchForm extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input className="header-search-field" type="search" placeholder="Search" />
+          <input id="header-search-input" className="header-search-field" type="text" placeholder="Search" />
         </form>
           {options}
       </div>
