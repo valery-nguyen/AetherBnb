@@ -59,23 +59,32 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
             <br />
+            <h1 className="session-modal-header">Log in to continue</h1>
+            <br/>
             <input type="text"
+              className="modal-input-field"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email"
             />
             <br />
             <input type="password"
+              className="modal-input-field"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <input className="session-modal-submit-button" type="submit" value="Submit" />
             {this.renderErrors()}
+            <div className="login-modal-lower-text">
+              <h4>Don't have an account?</h4><h4 onClick={() => this.props.handleClick("signup-modal")} className="switch-between-modals">Sign up</h4>
+            </div>
           </div>
         </form>
+        <div onClick={() => this.props.handleClick("login-modal")} className="modal-underlay"></div>
       </div>
+      
     );
   }
 }
