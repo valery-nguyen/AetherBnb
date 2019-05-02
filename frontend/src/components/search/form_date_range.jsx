@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateRangePicker } from 'react-dates';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import './form_modal.css';
 
@@ -30,20 +30,19 @@ class FormDateRange extends React.Component {
   applyDateRange(e) {
     e.preventDefault();
     this.props.receiveDateRange(this.state);
-    this.props.fetchSpots(this.props.activeSearch);
   }
 
   clearDateRange(e) {
     e.preventDefault();
     this.setState({
-    startDate: null,
-    endDate: null
-  });
-}
+      startDate: null,
+      endDate: null
+    });
+  }
 
   render() {
     return (
-      
+
       <div>
         <button className="modal-button" onClick={() => this.toggleModal()}>Dates</button>
         <div className="dates-modal" id="dates-modal" >
@@ -59,7 +58,7 @@ class FormDateRange extends React.Component {
               onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
             />
 
-            <br/>
+            <br />
             <div className="modal-buttons" >
               <button className="date-range-picker-button" onClick={(e) => this.clearDateRange(e)}>Clear</button>
               <button className="date-range-picker-button" onClick={(e) => this.applyDateRange(e)}>Apply</button>
@@ -72,4 +71,3 @@ class FormDateRange extends React.Component {
 }
 
 export default FormDateRange;
-

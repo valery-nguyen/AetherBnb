@@ -27,16 +27,16 @@ class FormGuestCount extends React.Component {
       case "infants":
         if (value > 5) value = 5;
         break;
-      case "adults":  
+      case "adults":
         if (value > 16) value = 16;
         break;
-      default: 
+      default:
         break;
     }
     this.setState({
-      [stateKey]: value 
+      [stateKey]: value
     });
-    
+
     this.addAdults();
   }
 
@@ -54,7 +54,7 @@ class FormGuestCount extends React.Component {
       value = 0;
     }
     this.setState({
-      [stateKey]: value 
+      [stateKey]: value
     });
   }
 
@@ -62,7 +62,7 @@ class FormGuestCount extends React.Component {
     let modal = document.getElementById("guests-modal");
     let dateModal = document.getElementById("dates-modal");
     let priceModal = document.getElementById("price-range-modal");
-    if(dateModal.classList.contains("show-modal")) {
+    if (dateModal.classList.contains("show-modal")) {
       dateModal.classList.remove("show-modal");
     }
     if (priceModal.classList.contains("show-modal")) {
@@ -83,10 +83,8 @@ class FormGuestCount extends React.Component {
   applyGuestCount(e) {
     e.preventDefault();
     let total = this.state.adults + this.state.children + this.state.infants;
-    if (total === 0) this.setState({ adults: 1 });
+    if (total === 0) this.state.adults = 1;
     this.props.receiveGuestCount(this.state);
-    this.props.fetchSpots(this.props.activeSearch);
-
   }
 
   render() {
@@ -95,33 +93,33 @@ class FormGuestCount extends React.Component {
         <button className="modal-button" onClick={() => this.toggleModal()}>Guests</button>
         <div className="guests-modal" id="guests-modal" >
           <form >
-            
+
             <div className="incrementer">
               <h5>Adults</h5>
               <div className="increment-buttons">
-                <button className="increment-button" onClick={() => this.decrementValue("adults")}>-</button>
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.decrementValue("adults") }}>-</button>
                 <h5> {this.state.adults}+</h5>
-                <button className="increment-button" onClick={() => this.incrementValue("adults")}>+</button> 
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.incrementValue("adults") }}>+</button>
               </div>
             </div>
 
             <div className="incrementer">
               <h5> Children </h5>
               <div className="increment-buttons">
-                <button className="increment-button" onClick={() => this.decrementValue("children")}>-</button>
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.decrementValue("children") }}>-</button>
                 <h5>{this.state.children}+</h5>
-                <button className="increment-button" onClick={() => this.incrementValue("children")}>+</button> 
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.incrementValue("children") }}>+</button>
               </div>
             </div>
-            
-      
+
+
 
             <div className="incrementer">
               <h5> Infants </h5>
               <div className="increment-buttons">
-                <button className="increment-button" onClick={() => this.decrementValue("infants")}>-</button>
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.decrementValue("infants") }}>-</button>
                 <h5>{this.state.infants}+</h5>
-                <button className="increment-button" onClick={() => this.incrementValue("infants")}>+</button> 
+                <button className="increment-button" onClick={(e) => { e.preventDefault(); this.incrementValue("infants") }}>+</button>
               </div>
             </div>
 
