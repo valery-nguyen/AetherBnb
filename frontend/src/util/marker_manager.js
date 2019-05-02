@@ -2,7 +2,6 @@ const google = window.google;
 
 export default class MarkerManager {
   constructor(map) {
-    debugger;
     this.map = map;
     this.markers = {};
   }

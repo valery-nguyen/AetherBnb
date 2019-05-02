@@ -5,18 +5,29 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-import './auto_complete.css'
+import './auto_complete.css';
 
 class AutoComplete extends React.Component {
   constructor(props) {
     super(props);
     this.state = { address: '' };
-    // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidUpdate() {
+    const inputEl = document.getElementById("header-search-input");
+    let options = {
+      searchText: inputEl.value,
+      startDate: this.props.activeSearch.startDate,
+      endDate: this.props.activeSearch.endDate,
+      guestCount: this.props.activeSearch.guestCount,
+      priceRange: this.props.activeSearch.priceRange
+    };
+    this.props.fetchSpots(options);
   }
 
   handleChange = address => {
     this.setState({ address });
-  };
+  }
 
   handleSelect = address => {
 
@@ -41,22 +52,6 @@ class AutoComplete extends React.Component {
     .catch(error => console.error('Error', error));
   };
 
-  // handleSubmit(e){
-  //   debugger;
-  //   e.preventDefault();
-  //   console.log("submitted");
-  //   this.activateSearch();
-  //   let options = {
-  //     searchText: e.target.value,
-  //     startDate: this.props.activeSearch.startDate,
-  //     endDate: this.props.activeSearch.endDate,
-  //     guestCount: this.props.activeSearch.guestCount,
-  //     priceRange: this.props.activeSearch.priceRange
-  //   };
-  //   this.props.fetchSpots(options);
-    
-  // }
-
   activateSearch() {
     this.props.receiveSearchStatus(true);
   }
@@ -74,17 +69,24 @@ class AutoComplete extends React.Component {
         value={this.state.address}
         onChange={this.handleChange}
         onSelect={this.handleSelect}
-        onSubmit={this.handleSubmit}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <input
+              <form onSubmit={(e) => {e.preventDefault();}}>
+                <input id="header-search-input"
+                  {...getInputProps({
+                    placeholder: 'Search Places ...',
+                    className: 'location-search-input',
+                  })}
+                />
+            </form>
+              {/* <input id="header-search-input"
+              onSubmit={()=>console.log("test")}
               {...getInputProps({
                 placeholder: 'Search Places ...',
                 className: 'location-search-input',
               })}
-              
-            />
+              /> */}
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {

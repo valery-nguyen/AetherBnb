@@ -6,6 +6,9 @@
   font-size: 24px;
 }
 
+#outer-spots-div{
+  font-size: 16px;
+}
 #spots-list-container{
 }
 
@@ -189,7 +192,7 @@
   position: fixed;
   right: 0px;
   width: 500px;
-  height: 100px;
+  height: 0px;
 }
 
 .spots-index-map-active {
