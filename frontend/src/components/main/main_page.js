@@ -7,7 +7,7 @@ class MainPage extends React.Component {
     // debugger;
     return (
       <div className="splash-page">
-      <h1 className="leave-me-alone" >Please go away</h1>
+      <h1 className="" ></h1>
         <img alt="" className="splash-page" src='http://www.vythiriresort.com/images/gallery/high-resolution/tree_house.jpg' />
       </div>
     );

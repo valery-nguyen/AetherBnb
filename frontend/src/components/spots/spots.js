@@ -38,7 +38,6 @@ class Spots extends React.Component {
                     <div id="spot-list-photo-container">
                       <img alt="" id="spot-list-photo" src={spot.images[0].img_url} />
                     </div>
-                    {/* add photos here */}
                     <p id="spot-list-description">{spot.name}</p>
                     <p id="spot-list-price">{spot.price} per night</p>
                     {/* <h1>{spot.average_rating}</h1> */}
