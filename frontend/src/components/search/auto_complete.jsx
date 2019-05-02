@@ -72,9 +72,6 @@ class AutoComplete extends React.Component {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-<<<<<<< HEAD
-            <input id=
-=======
               <form onSubmit={(e) => {e.preventDefault();}}>
                 <input id="header-search-input"
                   {...getInputProps({
@@ -85,7 +82,6 @@ class AutoComplete extends React.Component {
             </form>
               {/* <input id="header-search-input"
               onSubmit={()=>console.log("test")}
->>>>>>> a787d82bb5b56087667b4888e5ee80e6fb69ff53
               {...getInputProps({
                 placeholder: 'Search Places ...',
                 className: 'location-search-input',
