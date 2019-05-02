@@ -78,7 +78,7 @@ class AutoComplete extends React.Component {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <input
+            <input id=
               {...getInputProps({
                 placeholder: 'Search Places ...',
                 className: 'location-search-input',

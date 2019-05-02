@@ -19,8 +19,7 @@ class Spots extends React.Component {
           outerSpotsDiv.classList.add("spots-index-map-active");
         }
       return <MapContainer/>
-    }
-       
+    }  
   }
 
   render() {
