@@ -47,7 +47,8 @@ router.post('/register', (req, res) => {
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                   res.json({
                     success: true,
-                    token: "Bearer " + token
+                    token: "Bearer " + token,
+                    name: user.handle
                   });
                 });
               })
@@ -61,8 +62,6 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-
-  console.log(errors);
 
   if (!isValid) {
     return res.status(400).json(errors);
@@ -89,7 +88,8 @@ router.post('/login', (req, res) => {
               (err, token) => {
                 res.json({
                   success: true,
-                  token: 'Bearer ' + token
+                  token: 'Bearer ' + token,
+                  name: user.handle
                 });
               });
           } else {

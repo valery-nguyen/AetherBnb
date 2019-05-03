@@ -36,7 +36,6 @@ class FormPriceRange extends React.Component {
   applyPriceRange(e) {
     e.preventDefault();
     this.props.receivePriceRange(this.state);
-    this.props.fetchSpots(this.props.activeSearch);
     this.toggleModal();
   }
 

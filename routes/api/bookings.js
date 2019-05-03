@@ -41,12 +41,15 @@ router.post('/create', (req, res) => {
     end_date: new Date(req.body.endDate).setHours(0, 0, 0, 0),
     created_at: new Date()
   });
-
+  console.log(`new booking: ${newBooking}`)
+  // console.log(`new booking: ${newBooking}`);
   //check if available for booking
   Booking.find({
+    spot_id: newBooking.spot_id,
     start_date: { $lt: newBooking.end_date },
     end_date: { $gt: newBooking.start_date }
   }).then(conflictingBookings => {
+    console.log(`conflict booking: ${conflictingBookings}`);
     if (conflictingBookings.length === 0) {
       newBooking
       .save()

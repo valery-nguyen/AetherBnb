@@ -4,6 +4,7 @@
   color: rgb(72, 72, 72);
   font-weight: 800;
   font-size: 24px;
+  margin-top: 120px;
 }
 
 #outer-spots-div{
@@ -99,10 +100,13 @@
   box-sizing: border-box;
   border: 1px solid darkgray;
 }
-.spotshow-photo-large:hover{
+/* .spotshow-photo-large:hover{
    opacity: 0.8;
-  
-}
+  width:50%;
+  height:100%;
+  box-sizing: border-box;
+  border: 1px solid darkgray;
+} */
 #outer{
   position: relative;
   display: flex;
@@ -117,7 +121,7 @@
   position: sticky;
   width: 360px;
     height: 355px;
-    border: 1px solid black;
+    border: 1px solid rgb(72,72,72);
     top: 90px;
     margin-top: 50px;
     margin-left: 80px;

@@ -2,36 +2,65 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+var moment = require("moment");
 
 class ReservationForm extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       startDate: null,
       endDate: null,
       guest_count: "",
       spot_id: this.props.spot._id,
-      user_id: "5cc726fc047c7a35927cd696"
+      user_id: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.isDayBlocked = this.isDayBlocked.bind(this);
   }
-  componentDidUpdate() {
+  // componentDidUpdate() {
    
-  }
-  // componentDidMount() {
-  //   if (!this.props.spot) {
-  //     this.props.fetchSpot(this.props.spot_id);
-  //   }
   // }
+  componentDidMount() {
+    
+    this.props.fetchSpotBookings(this.props.spot._id);
+  }
 
   update(field) {
     
     return e => this.setState({ [field]: e.currentTarget.value });
   } 
 
+  isDayBlocked(day) {
+      // let startDay;
+      // let endDay;
+      let calendarDay = day.calendar();
+      let bookings = this.props.user.bookings;
+      bookings = Object.values(bookings);
+      
+      bookings.forEach( booking => {
+        
+        if(calendarDay === "05/11/2019") {
+         
+        }
+        let startDay = new Date(booking.start_date);
+        let startDayM = moment(startDay.toLocaleDateString()).calendar();
+        let endDay = new Date(booking.end_date);
+        let endDayM = moment(endDay.toLocaleDateString()).calendar();
+       
+        if (calendarDay >= startDayM && calendarDay <= endDayM) {
+          console.log(calendarDay);
+          return true;
+        }
+      });
+      
+    return false;
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let bookingInfo = this.state;
+    bookingInfo.user_id = this.props.user.user_id;
     this.props.createBooking(bookingInfo);
   }
 
@@ -50,6 +79,7 @@ class ReservationForm extends React.Component {
             <label>Dates
             <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+              isDayBlocked={this.isDayBlocked}
               startDateId="start-date-field" // PropTypes.string.isRequired,
               endDate={this.state.endDate} // momentPropTypes.momentObj or null,
               endDateId="end-date-field" // PropTypes.string.isRequired,
@@ -60,6 +90,7 @@ class ReservationForm extends React.Component {
               onFocusChange={focusedInput =>
                 this.setState({ focusedInput })
               } // PropTypes.func.isRequired,
+              
             />
             </label>
             <label>Guests<br/>

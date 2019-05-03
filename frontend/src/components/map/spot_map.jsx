@@ -2,37 +2,48 @@ import './spot_map.css';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import MarkerManager from './../../util/marker_manager';
+import _ from 'lodash';
 
 const google = window.google;
 
 class SpotMap extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
-    const mapOptions = {
+    let mapOptions = {
       center: this.props.searchParams.location, 
-      zoom: 12
+      zoom: 14
     };
 
-    const map = this.refs.map;
-    this.map = new google.maps.Map(map, mapOptions);
+    let map = this.refs.map;
+    window.map = this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
 
     this.map.addListener('bounds_changed', () => {
-      const mapBounds = this.map.getBounds();
-      const southWest = mapBounds.getSouthWest();
-      const northEast = mapBounds.getNorthEast();
-      const bounds = { sw: { lat: southWest.lat(), lng: southWest.lng() }, 
+      let mapBounds = this.map.getBounds();
+      let southWest = mapBounds.getSouthWest();
+      let northEast = mapBounds.getNorthEast();
+      let bounds = { sw: { lat: southWest.lat(), lng: southWest.lng() }, 
       ne: { lat: northEast.lat(), lng: northEast.lng() }};
       this.props.receiveBounds(bounds);
+
+      let location = this.map.getCenter();
+      this.props.receiveLocation(location);
     });
   }
 
-  componentDidUpdate() {
-    this.MarkerManager.updateMarkers(this.props.spots);
+  componentDidUpdate(prevProps, prevState) {
+    //temporary fix: valery
+    //working code below!
+    // if (!_.isEqual(prevProps.searchParams.location, this.props.searchParams.location)) {
+    //   this.MarkerManager.updateMarkers(this.props.spots);
+    // }
+    if (!_.isEqual(prevProps.searchParams.location, this.props.searchParams.location)) {
+      this.MarkerManager.updateMarkers(this.props.spots);
+    } 
   }
 
   render() {
