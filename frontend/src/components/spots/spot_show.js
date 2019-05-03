@@ -8,9 +8,7 @@ class SpotShow extends React.Component {
     if (!this.props.spot) {
       this.props.fetchSpot(this.props.spot_id);
     } 
-   
-      
-      
+    this.props.receiveSearchStatus(false);
   }
 
   render() {

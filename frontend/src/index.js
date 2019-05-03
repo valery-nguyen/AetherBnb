@@ -13,6 +13,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import './components/spots/spots.css';
 import './components/spots/reservation_form.css';
 import './components/session/signup_login.css';
+import "./components/components.css";
 
 import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import cssInterface from 'react-with-styles-interface-css';

@@ -10,6 +10,7 @@ class Spots extends React.Component {
 
   componentDidMount() {
     this.props.fetchSpots();
+    this.props.receiveSearchStatus(true);
   }
 
   isMapActive() {

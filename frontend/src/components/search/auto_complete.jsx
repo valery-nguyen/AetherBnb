@@ -30,9 +30,12 @@ class AutoComplete extends React.Component {
           priceRange: this.props.activeSearch.priceRange
         };
         this.props.fetchSpots(options);
-
-        if (this.props.history.location.pathname !== "/spots")
+        if (
+          this.props.history.location.pathname !== "/spots" &&
+          this.props.activeSearch.active === true
+        ) {
           this.props.history.push(`/spots`);
+        }
       } else {
         window.preventFetch = false;
         const inputEl = document.getElementById(
@@ -51,6 +54,8 @@ class AutoComplete extends React.Component {
           this.MarkerManager = window.markerManager;
           this.MarkerManager.updateMarkers(this.props.spots);
         });
+        if (this.props.history.location.pathname !== "/spots") 
+          this.props.history.push(`/spots`);
       }
     } else {
         if (window.markerManager) {
@@ -115,6 +120,9 @@ class AutoComplete extends React.Component {
               <form onSubmit={(e) => {e.preventDefault();}}>
                 <input id="header-search-input"
                   {...getInputProps({
+                    placeholder: 'Search Spots ... (try San Francisco)',
+                    placeholder: 'Search Spots ... (try San Francisco)',
+                    placeholder: 'Search Spots ... (try San Francisco)',
                     placeholder: 'Search Spots ... (try San Francisco)',
                     className: 'location-search-input',
                   })}
