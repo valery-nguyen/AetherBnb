@@ -33,13 +33,17 @@
   width: auto;
 }
 
+.spots-results-list-column a {
+  width: 100%;
+}
+
 #spots-results-list > p {
   margin: unset;
 }
 
 #spots-results-list a {
   text-decoration: none;
-  width: calc(18% - 10px);
+  width: 100% !important;
   margin-left: 8px;
   margin-right: 8px;
   margin-bottom: 30px;
@@ -114,12 +118,14 @@
   box-sizing: border-box;
   border: 1px solid darkgray;
 } */
+
 #outer{
   position: relative;
   display: flex;
   flex-direction: row;
   height: 2000px;
 }
+
 .check-in-box{
   font-family: sans-serif;
   font-size: 14px;
@@ -127,11 +133,11 @@
   color: #484848;
   position: sticky;
   width: 360px;
-    height: 355px;
-    border: 1px solid rgb(72,72,72);
-    top: 90px;
-    margin-top: 50px;
-    margin-left: 80px;
+  height: 355px;
+  border: 1px solid rgb(72,72,72);
+  top: 90px;
+  margin-top: 50px;
+  margin-left: 80px;
 }
 .check-in-box span{
   margin: unset;
@@ -208,14 +214,15 @@
 
 #map-container {
   height: 100vh;
-  width: 900px;
+  width: calc(83vw - 300px);
   position: fixed;
   right: 0;
   margin-top: 118px;
+  margin-left: 25px;
 }
 
 .spots-index-map-active {
-  margin-right: 1000px;
+  /* margin-right: 1000px; */
 }
 
 .spot-list-item-m {
@@ -229,7 +236,8 @@
 
 .m-spot-container {
   display: flex;
-  width: 600%;
+  width: 100%;
+  max-width: 600px;
   height: 200px;
   border: 1px solid #cccccc;
   border-radius: 5px;

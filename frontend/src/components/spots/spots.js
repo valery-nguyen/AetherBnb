@@ -49,11 +49,11 @@ class Spots extends React.Component {
             </ul>
           </div>
         </div>
-        <div className="spacing-right-div">
-        <div className="outer-map-div">        
+
+     
           {this.isMapActive()}
-        </div>
-        </div>
+
+
       </div>
     );
   }

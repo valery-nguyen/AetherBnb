@@ -18,10 +18,12 @@ class Profile extends React.Component {
     let d;
     this.props.fetchUserBookings(currentUserId)
       .then(() => Object.values(this.props.bookings).forEach((booking) => {
-        this.props.fetchSpot(booking.spot_id).then((spot) => d = spot);
-
+        this.props.fetchSpot(booking.spot_id).then((response) => {
+          this.setState({
+            [booking.spot_id]: response.spots.data[booking.spot_id]
+          });
+        });
       }));
-      debugger;
   }
 
   componentDidUpdate(prevProps) {
@@ -42,14 +44,14 @@ class Profile extends React.Component {
 
   render() {
     if (!this.props.bookings) return null;
-    if (Object.keys(this.props.spots).length < Object.keys(this.props.bookings).length) return null;
+    if (Object.keys(this.state).length < Object.keys(this.props.bookings).length) return null;
     const bookings = this.props.bookings;
 
     const bookingsLis = bookings.map( booking => {
         const startDate = new Date(booking.start_date);
         const endDate = new Date(booking.end_date);
         const createdAt = new Date(booking.created_at);
-        const imgUrl = this.props.spots[booking.spot_id].images[0].img_url;
+        const imgUrl = this.state[booking.spot_id].images[0].img_url;
         return (
           <li key={booking._id}>
             <div>
