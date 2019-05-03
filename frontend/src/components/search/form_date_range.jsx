@@ -31,6 +31,7 @@ class FormDateRange extends React.Component {
     e.preventDefault();
     this.props.receiveDateRange(this.state);
     this.props.fetchSpots(this.props.activeSearch);
+    this.toggleModal();
   }
 
   clearDateRange(e) {

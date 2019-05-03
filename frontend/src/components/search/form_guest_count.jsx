@@ -86,6 +86,7 @@ class FormGuestCount extends React.Component {
     if (total === 0) this.setState({adults: 1});
     this.props.receiveGuestCount(this.state);
     this.props.fetchSpots(this.props.activeSearch);
+    this.toggleModal();
   }
 
   render() {

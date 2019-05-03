@@ -12,18 +12,21 @@ class Spots extends React.Component {
     this.props.fetchSpots();
   }
 
-  isSearchActive() {
-    if (this.props.active) {
-      let outerSpotsDiv = document.getElementById("outer-spots-div");
-        if (outerSpotsDiv && !outerSpotsDiv.classList.contains("spots-index-map-active")) {
-          outerSpotsDiv.classList.add("spots-index-map-active");
-        }
+  isMapActive() {
+    let outerSpotsDiv = document.getElementById("outer-spots-div");
+    if (this.props.mapIsActive) {
+      if (outerSpotsDiv && !outerSpotsDiv.classList.contains("spots-index-map-active")) {
+        outerSpotsDiv.classList.add("spots-index-map-active");
+      }
       return <MapContainer/>
-    }  
+    } else {
+      if (outerSpotsDiv && outerSpotsDiv.classList.contains("spots-index-map-active")) {
+        outerSpotsDiv.classList.remove("spots-index-map-active");
+      }
+    }
   }
 
   render() {
-    let map = this.isSearchActive();
     return (
       <div className="spots-and-map-div">
         <div id="outer-spots-div" className="outer-spots-div">
@@ -50,7 +53,7 @@ class Spots extends React.Component {
         </div>
         <div className="spacing-right-div">
         <div className="outer-map-div">        
-          {map}
+          {this.isMapActive()}
         </div>
         </div>
       </div>

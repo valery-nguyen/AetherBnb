@@ -1,4 +1,4 @@
-import { RECEIVE_DATE_RANGE, RECEIVE_PRICE_RANGE, RECEIVE_GUEST_COUNT, RECEIVE_SEARCH_STATUS, RECEIVE_BOUNDS, RECEIVE_LOCATION } from './../actions/search_actions';
+import { RECEIVE_MAP_IS_ACTIVE, RECEIVE_DATE_RANGE, RECEIVE_PRICE_RANGE, RECEIVE_GUEST_COUNT, RECEIVE_SEARCH_STATUS, RECEIVE_BOUNDS, RECEIVE_LOCATION } from './../actions/search_actions';
 import { merge } from 'lodash';
 
 const defaultState = { 
@@ -15,7 +15,8 @@ const defaultState = {
     maxValue: 1000
   },
   bounds: null,
-  location: null
+  location: null,
+  mapIsActive: false
 };
 
 //this slice of state is not persisting!
@@ -36,6 +37,8 @@ const ActiveSearchReducer = (state = defaultState, action) => {
       return merge({}, state, { bounds: action.bounds });
     case RECEIVE_LOCATION:
       return merge({}, state, { location: action.location });
+    case RECEIVE_MAP_IS_ACTIVE:
+      return merge({}, state, { mapIsActive: action.mapIsActive});
     default:
       return state;
   }

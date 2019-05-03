@@ -30,7 +30,7 @@ class AutoComplete extends React.Component {
   }
 
   handleSelect = address => {
-
+    this.setState({ address });
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
@@ -54,13 +54,14 @@ class AutoComplete extends React.Component {
 
   activateSearch() {
     this.props.receiveSearchStatus(true);
+    this.props.receiveMapIsActive(true);
   }
 
   render() {
 
     let options;
     if (this.props.activeSearch.active) {
-      options = <div><FormOptions /></div>;
+      options = <div><FormOptions receiveMapIsActive={this.props.receiveMapIsActive} mapIsActive={this.props.activeSearch.mapIsActive}/></div>;
     }
 
     return (

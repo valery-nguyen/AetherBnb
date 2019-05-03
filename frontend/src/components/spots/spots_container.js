@@ -4,7 +4,8 @@ import Spots from './spots';
 
 const mapStateToProps = state => ({
     spots: Object.values(state.entities.spots),
-    active: state.ui.activeSearch.active
+    active: state.ui.activeSearch.active,
+    mapIsActive: state.ui.activeSearch.mapIsActive
 });
 
 const mapDispatchToProps = dispatch => ({

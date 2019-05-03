@@ -49,19 +49,34 @@
 }
 
 .form-options-wrapper {
+  font-family: 'Roboto', sans-serif;
+  display: flex; 
+}
+
+.options-wrapper {
   border-bottom: 1px solid rgb(220, 224, 224);
-  border-top: 1px solid rgb(220, 224, 224);; 
+  /* border-top: 1px solid rgb(220, 224, 224);;  */
   width: 100%;
   position: fixed;
   top: 64px;
   left: 0px;
   display: flex;
-  font-family: 'Roboto', sans-serif;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   padding-top: 10px;
-  padding-left: 63px;
+  padding-left: 73px;
   background-color: white;
+  justify-content: space-between;
+  margin-bottom: -5px;
+}
 
+.switch-wrapper {
+  display: flex;
+  margin-top: -5px;
+  margin-right: 35px;
+}
+
+.MuiPrivateSwitchBase-input-13 {
+  color: blue;
 }
 
 .date-range-picker-button {
@@ -111,5 +126,12 @@
   justify-content: space-between;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.show-map-p {
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
 }
 
