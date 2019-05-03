@@ -15,7 +15,17 @@ router.post('/', (req, res) => {
   let guestCount = req.body.guestCount ? (req.body.guestCount.adults + req.body.guestCount.children + req.body.guestCount.infants) : 1;
   let priceRange = req.body.priceRange || { minValue: 0, maxValue: 1000 };
 
-  Spot.find({ occupancy: { $gte: guestCount }, price: { $lte: priceRange.maxValue, $gt: priceRange.minValue} })
+  let searchText = req.body.searchText || '';
+  let sw_lat = req.body.bounds ? req.body.bounds.sw.lat : -90.0;
+  let sw_lng = req.body.bounds ? req.body.bounds.sw.lng : -180.0;
+  let ne_lat = req.body.bounds ? req.body.bounds.ne.lat : 90.0;
+  let ne_lng = req.body.bounds ? req.body.bounds.ne.lng : 180.0;
+  
+  Spot.find({ 
+    lng: { $gte: sw_lng, $lte: ne_lng},
+    lat: { $gte: sw_lat, $lte: ne_lat},
+    occupancy: { $gte: guestCount }, 
+    price: { $lte: priceRange.maxValue, $gt: priceRange.minValue} })
   .populate('images')
   .then(spots => {
     spotHash = {};

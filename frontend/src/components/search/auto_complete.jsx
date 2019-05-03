@@ -6,23 +6,54 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 import './auto_complete.css';
+import _ from 'lodash';
+import MarkerManager from './../../util/marker_manager';
+
+const google = window.google;
 
 class AutoComplete extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { address: '' };
+    this.state = { address: ''};
   }
 
-  componentDidUpdate() {
-    const inputEl = document.getElementById("header-search-input");
-    let options = {
-      searchText: inputEl.value,
-      startDate: this.props.activeSearch.startDate,
-      endDate: this.props.activeSearch.endDate,
-      guestCount: this.props.activeSearch.guestCount,
-      priceRange: this.props.activeSearch.priceRange
-    };
-    this.props.fetchSpots(options);
+  componentDidUpdate(prevProps) {
+    //by Valery:
+    if (!_.isEqual(prevProps.activeSearch, this.props.activeSearch)) {
+      if (!window.preventFetch) {
+        const inputEl = document.getElementById("header-search-input");
+        let options = {
+          bounds: this.props.activeSearch.bounds,
+          searchText: inputEl.value,
+          startDate: this.props.activeSearch.startDate,
+          endDate: this.props.activeSearch.endDate,
+          guestCount: this.props.activeSearch.guestCount,
+          priceRange: this.props.activeSearch.priceRange
+        };
+        this.props.fetchSpots(options);
+
+        if (this.props.history.location.pathname !== "/spots")
+          this.props.history.push(`/spots`);
+      } else {
+        window.preventFetch = false;
+        const inputEl = document.getElementById(
+          "header-search-input"
+        );
+        let options = {
+          bounds: this.props.activeSearch.bounds,
+          searchText: inputEl.value,
+          startDate: this.props.activeSearch.startDate,
+          endDate: this.props.activeSearch.endDate,
+          guestCount: this.props.activeSearch
+            .guestCount,
+          priceRange: this.props.activeSearch.priceRange
+        };
+        this.props.fetchSpots(options).then(() => {
+          this.MarkerManager = new MarkerManager(window.map);
+          this.MarkerManager.updateMarkers(this.props.spots);
+        });
+      }
+    }
   }
 
   handleChange = address => {
@@ -30,26 +61,29 @@ class AutoComplete extends React.Component {
   }
 
   handleSelect = address => {
+    //by Valery:
+    if (window.map) {
+      window.preventFetch = true;
+      geocodeByAddress(address).then(results => {
+        getLatLng(results[0]).then(({lat, lng}) => {
+          window.locationObj = new google.maps.LatLng(lat, lng);
+          window.map.panTo(window.locationObj);
+        });
+      });
+    //
+    } else {
+      window.preventFetch = false;
+      geocodeByAddress(address)
+        .then(results => getLatLng(results[0]))
+        .then(latLng => {
+          const location = latLng;
+          this.props.receiveLocation(location);
+          this.activateSearch();
+        })
+        .catch(error => console.error('Error', error));
+    }
+    
 
-    geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => {
-        const location = latLng;
-        this.props.receiveLocation(location);
-        this.activateSearch();
-        //update spots with bounds slice of state
-
-        let options = {
-          bounds: this.props.activeSearch.bounds,
-          startDate: this.props.activeSearch.startDate,
-          endDate: this.props.activeSearch.endDate,
-          guestCount: this.props.activeSearch.guestCount,
-          priceRange: this.props.activeSearch.priceRange
-        };
-        this.props.fetchSpots(options);
-        this.props.history.push("/spots");
-      })
-    .catch(error => console.error('Error', error));
   };
 
   activateSearch() {

@@ -20,7 +20,6 @@ class Spots extends React.Component {
         }
       return <MapContainer/>
     }
-       
   }
 
   render() {

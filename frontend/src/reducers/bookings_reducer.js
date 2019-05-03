@@ -1,5 +1,6 @@
 import { RECEIVE_BOOKINGS } from '../actions/bookings_actions';
 
+
 const BookingsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {

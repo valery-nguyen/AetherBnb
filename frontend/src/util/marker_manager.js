@@ -4,20 +4,29 @@ export default class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
+
+    this.removeMarker = this.removeMarker.bind(this);
   }
 
   updateMarkers(spots) {
-    console.log('updating map');
-    spots.forEach((spot) => {
-      if (!Object.keys(this.markers).includes(spot.id)) {
-        this.createMarkerFromSpot(spot);
-      }
-    });
+    const spotsObj = {};
+    spots.forEach(spot => spotsObj[spot._id] = spot);
+
+    spots
+      .filter(spot => !this.markers[spot._id])
+      .forEach(newSpot => this.createMarkerFromSpot(newSpot));
+
+    Object.keys(this.markers)
+      .filter(spotId => !spotsObj[spotId])
+      .forEach((spotId) => this.removeMarker(this.markers[spotId]));
+  }
+
+  removeMarker(marker) {
+    this.markers[marker.spotId].setMap(null);
+    delete this.markers[marker.spotId];
   }
 
   createMarkerFromSpot(spot) {
-    // debugger;
-    // const pos = new google.maps.LatLng(spot.lat, spot.lng);
     const position = { lat: spot.lat, lng: spot.lng };
     const marker = new google.maps.Marker({
       position,

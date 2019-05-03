@@ -6,15 +6,17 @@ import {
 
 const initialState = {
   isAuthenticated: false,
-  user: {}
+  user: {id: ""}
 };
 
 export default function (state = initialState, action) {
+ 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
+        session_id: action.currentUser.token.id,
         user: action.currentUser
       };
     case RECEIVE_USER_LOGOUT:
@@ -23,9 +25,13 @@ export default function (state = initialState, action) {
         user: undefined
       };
     case RECEIVE_USER_SIGN_IN:
+  
       return {
         ...state,
-        isSignedIn: true
+        isSignedIn: true,
+        isAuthenticated: !!action.currentUser,
+        session_id: action.currentUser.token.id,
+        user: action.currentUser
       }
     default:
       return state;

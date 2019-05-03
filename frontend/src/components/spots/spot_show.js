@@ -1,17 +1,21 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ReservationFormContainer from './reservation_form_container';
+var moment = require("moment");
 
 class SpotShow extends React.Component {
   componentDidMount() {
     if (!this.props.spot) {
       this.props.fetchSpot(this.props.spot_id);
-    }
+    } 
+   
+      
+      
   }
 
   render() {
     if (!this.props.spot) return (<div></div>)
-
+    
     return (
       <div>
         <div className="spotshow-main">
@@ -34,7 +38,7 @@ class SpotShow extends React.Component {
 
             </div>
             <div className="check-in-box">
-              <ReservationFormContainer spot={this.props.spot}/>
+              <ReservationFormContainer spot={this.props.spot} />
             </div>
           </div>
 
