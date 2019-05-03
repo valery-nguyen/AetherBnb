@@ -2,9 +2,9 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     this.props.fetchUserBookings(this.props.currentUserId);

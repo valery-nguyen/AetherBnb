@@ -197,6 +197,7 @@
   right: 0px;
   width: 500px;
   height: 0px;
+  z-index: 0;
 }
 
 .spots-index-map-active {

@@ -4,7 +4,8 @@ import { fetchSpots } from './../../actions/spots_actions';
 import {
   receiveSearchStatus,
   receiveLocation,
-  receiveBounds
+  receiveBounds,
+  receiveMapIsActive
 } from "./../../actions/search_actions";
 
 const mapStateToProps = state => {
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
   fetchSpots: options => dispatch(fetchSpots(options)),
   receiveSearchStatus: active => dispatch(receiveSearchStatus(active)),
   receiveLocation: location => dispatch(receiveLocation(location)),
-  receiveBounds: bounds => dispatch(receiveBounds(bounds))
+  receiveBounds: bounds => dispatch(receiveBounds(bounds)),
+  receiveMapIsActive: (mapIsActive) => dispatch(receiveMapIsActive(mapIsActive))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AutoComplete);

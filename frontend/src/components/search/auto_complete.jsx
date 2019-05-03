@@ -18,7 +18,6 @@ class AutoComplete extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    //by Valery:
     if (!_.isEqual(prevProps.activeSearch, this.props.activeSearch)) {
       if (!window.preventFetch) {
         const inputEl = document.getElementById("header-search-input");
@@ -61,7 +60,7 @@ class AutoComplete extends React.Component {
   }
 
   handleSelect = address => {
-    //by Valery:
+    this.setState({ address });
     if (window.map) {
       window.preventFetch = true;
       geocodeByAddress(address).then(results => {
@@ -70,7 +69,6 @@ class AutoComplete extends React.Component {
           window.map.panTo(window.locationObj);
         });
       });
-    //
     } else {
       window.preventFetch = false;
       geocodeByAddress(address)
@@ -88,13 +86,14 @@ class AutoComplete extends React.Component {
 
   activateSearch() {
     this.props.receiveSearchStatus(true);
+    this.props.receiveMapIsActive(true);
   }
 
   render() {
 
     let options;
     if (this.props.activeSearch.active) {
-      options = <div><FormOptions /></div>;
+      options = <div><FormOptions receiveMapIsActive={this.props.receiveMapIsActive} mapIsActive={this.props.activeSearch.mapIsActive}/></div>;
     }
 
     return (
@@ -109,7 +108,7 @@ class AutoComplete extends React.Component {
               <form onSubmit={(e) => {e.preventDefault();}}>
                 <input id="header-search-input"
                   {...getInputProps({
-                    placeholder: 'Search Places ...',
+                    placeholder: 'Search Spots ...',
                     className: 'location-search-input',
                   })}
                 />

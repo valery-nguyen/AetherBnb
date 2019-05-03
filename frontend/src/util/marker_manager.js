@@ -1,10 +1,11 @@
+import { createPopupClass } from './popup_util';
 const google = window.google;
+
 
 export default class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
-
     this.removeMarker = this.removeMarker.bind(this);
   }
 
@@ -31,9 +32,13 @@ export default class MarkerManager {
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      spotId: spot._id
+      label: `$${spot.price}`,
+      spotId: spot._id,
+      
     });
+
     // marker.addListener('click', () => this.handleClick(bench));
+
     this.markers[marker.spotId] = marker;
   }
 
