@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { SpotIndexItem } from './spot_index_item';
 import MapContainer from './../map/spot_map_container';
 
 class Spots extends React.Component {
@@ -15,19 +15,27 @@ class Spots extends React.Component {
 
   isMapActive() {
     let outerSpotsDiv = document.getElementById("outer-spots-div");
+    let list = document.getElementById("spots-results-list");
+
     if (this.props.mapIsActive) {
       if (outerSpotsDiv && !outerSpotsDiv.classList.contains("spots-index-map-active")) {
         outerSpotsDiv.classList.add("spots-index-map-active");
+        list.classList.add("spots-results-list-column");
+        list.classList.remove("spots-results-list");
       }
       return <MapContainer/>
     } else {
       if (outerSpotsDiv && outerSpotsDiv.classList.contains("spots-index-map-active")) {
         outerSpotsDiv.classList.remove("spots-index-map-active");
+        list.classList.add("spots-results-list");
+        list.classList.remove("spots-results-list-column");
+        
       }
     }
   }
 
   render() {
+
     return (
       <div className="spots-and-map-div">
         <div id="outer-spots-div" className="outer-spots-div">
@@ -35,28 +43,18 @@ class Spots extends React.Component {
             Explore all {this.props.spots.length} homes
           </h2>
           <div id="spots-list-container">
-            <ul id="spots-results-list">
+            <ul id="spots-results-list" className="spots-results-list">
               {this.props.spots.map(spot => (
-                <Link key={spot._id} to={`/spot/${spot._id}`}>
-                  <li key={spot._id} className="spot-list-item">
-                    <div id="spot-list-photo-container">
-                      <img alt="" id="spot-list-photo" src={spot.images[0].img_url} />
-                    </div>
-                    <p id="spot-list-description">{spot.name}</p>
-                    <p id="spot-list-price">{spot.price} per night</p>
-                    {/* <h1>{spot.average_rating}</h1> */}
-                    {/* add total reviews count here */}
-                  </li>
-                </Link>
+                <SpotIndexItem spot={spot} key={spot._id} mapIsActive={this.props.mapIsActive} />
               ))}
             </ul>
           </div>
         </div>
-        <div className="spacing-right-div">
-        <div className="outer-map-div">        
+
+     
           {this.isMapActive()}
-        </div>
-        </div>
+
+
       </div>
     );
   }

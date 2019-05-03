@@ -10,13 +10,12 @@
   justify-content: center;
 }
 
-#outer-spots-div{
+#outer-spots-div {
   font-size: 16px;
-}
-#spots-list-container{
+  width: auto;
 }
 
-#spots-results-list{
+.spots-results-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -27,21 +26,31 @@
   margin-top: 20px;
 }
 
-#spots-results-list > p{
+.spots-results-list-column {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: auto;
+}
+
+.spots-results-list-column a {
+  width: 100%;
+}
+
+#spots-results-list > p {
   margin: unset;
 }
 
-#spots-results-list a{
-  display: flex;
-  flex-direction: row;
+#spots-results-list a {
   text-decoration: none;
-  width: calc(18% - 10px);
+  width: 100% !important;
   margin-left: 8px;
   margin-right: 8px;
   margin-bottom: 30px;
 }
 
-.spot-list-item{
+.spot-list-item {
   /* margin-left: 9px; */
   margin-right: auto;
   margin-left: auto;
@@ -49,7 +58,7 @@
   /* width: calc(30vw - 18px); */
 
 } 
-#spot-list-photo-container{
+#spot-list-photo-container {
   width: auto;
   height: 160px; 
   overflow: hidden;
@@ -98,8 +107,8 @@
 
 .spotshow-photo-large{
    
-  width:50%;
-  height:100%;
+  width: 50%;
+  height: 100%;
   box-sizing: border-box;
   border: 1px solid darkgray;
 }
@@ -110,6 +119,7 @@
   box-sizing: border-box;
   border: 1px solid darkgray;
 } */
+
 #outer{
   
   position: relative;
@@ -117,6 +127,7 @@
   flex-direction: row;
   height: 400px;
 }
+
 .check-in-box{
   font-family: sans-serif;
   font-size: 14px;
@@ -124,11 +135,11 @@
   color: #484848;
   position: sticky;
   width: 360px;
-    height: 355px;
-    border: 1px solid rgb(72,72,72);
-    top: 90px;
-    margin-top: 50px;
-    margin-left: 80px;
+  height: 355px;
+  border: 1px solid rgb(72,72,72);
+  top: 90px;
+  margin-top: 50px;
+  margin-left: 80px;
 }
 .check-in-box span{
   margin: unset;
@@ -136,7 +147,6 @@
   font-size: 20px;
   font-weight: 600;
 }
-
 
 .spotshow-info-column{
   position: relative;
@@ -200,11 +210,84 @@
 .outer-map-div {
   position: fixed;
   right: 0px;
-  width: 500px;
+  width: 900px;
   height: 0px;
   z-index: 0;
 }
 
-.spots-index-map-active {
-  margin-right: 500px;
+#map-container {
+  height: 100vh;
+  width: calc(83vw - 300px);
+  position: fixed;
+  right: 0;
+  margin-top: 118px;
+  margin-left: 25px;
 }
+
+.spots-index-map-active {
+  /* margin-right: 1000px; */
+}
+
+.spot-list-item-m {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: auto;
+  height: 100%;
+  margin-bottom: -10px;
+}
+
+.m-spot-container {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.spot-list-photo-container-m {
+  height: 50px;
+  width: 50px;
+}
+
+.spot-list-photo-m {
+  height: 200px;
+  width: 300px;
+}
+
+.spot-list-description-m {
+
+}
+
+.spot-list-price-m {
+
+}
+
+.spot-list-deets {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.spot-list-deets-desc {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.spot-list-deets-price {
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+
+

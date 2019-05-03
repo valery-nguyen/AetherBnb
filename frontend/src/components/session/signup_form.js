@@ -13,6 +13,7 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderFieldErrors = this.renderFieldErrors.bind(this);
     this.clearedErrors = false;
   }
 
@@ -54,6 +55,20 @@ class SignupForm extends React.Component {
     );
   }
 
+  renderFieldErrors(field) {
+    if (this.state.errors[field]) {
+      return (
+        <div className="error-div">
+          <h5 className="field-error">{this.state.errors[field]}</h5>
+        </div>
+      )
+    } else {
+      return (
+        <div className="error-div" />
+      )
+    }
+  }
+
   render() {
     return (
       <div className="login-form-container">
@@ -70,30 +85,29 @@ class SignupForm extends React.Component {
               onChange={this.update('email')}
               placeholder="Email"
             />
-            <br />
+            {this.renderFieldErrors("email")}
             <input type="text"
               className="modal-input-field"
               value={this.state.handle}
               onChange={this.update('handle')}
               placeholder="Handle"
             />
-            <br />
+            {this.renderFieldErrors("handle")}
             <input type="password"
               className="modal-input-field"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
             />
-            <br />
+            {this.renderFieldErrors("password")}
             <input type="password"
               className="modal-input-field"
               value={this.state.password2}
               onChange={this.update('password2')}
               placeholder="Confirm Password"
             />
-            <br />
+            {this.renderFieldErrors("password2")}
             <input className="session-modal-submit-button" type="submit" value="Submit" />
-            {this.renderErrors()}
             <div className="login-modal-lower-text">
               <h4>Already have an account?</h4><h4 onClick={() => this.props.handleClick("login-modal")} className="switch-between-modals">Log in</h4>
             </div>
