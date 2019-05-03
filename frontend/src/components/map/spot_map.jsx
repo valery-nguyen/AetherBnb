@@ -7,9 +7,9 @@ import _ from 'lodash';
 const google = window.google;
 
 class SpotMap extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     let mapOptions = {

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class LoggedInNavMenu extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
+    this.linkToProfile = this.linkToProfile.bind(this);
   }
 
   logoutUser(e) {
@@ -12,14 +13,18 @@ class LoggedInNavMenu extends React.Component {
     this.props.logout();
   }
 
+  linkToProfile() {
+    this.props.history.push('/profile');
+  }
+
   render() {
     return (
       <div className="nav-menu-buttons">
-        <Link to={'/profile'}>Profile</Link>
-        <button onClick={this.logoutUser}>Logout</button>
+        <button className="nav-menu-button" onClick={this.linkToProfile}>Profile</button>
+        <button className="nav-menu-button" onClick={this.logoutUser}>Logout</button>
       </div>
     );
   }
 }
 
-export default LoggedInNavMenu;
+export default withRouter(LoggedInNavMenu);
