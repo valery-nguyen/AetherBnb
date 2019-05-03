@@ -5,10 +5,12 @@ import LoggedInNavMenuContainer from './logged_in_nav_menu_container';
 import LoggedOutNavMenuContainer from './logged_out_nav_menu_container';
 import { withRouter } from 'react-router-dom';
 
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.getMenuOptions = this.getMenuOptions.bind(this);
+    this.linkToMainPage = this.linkToMainPage.bind(this);
   }
 
   getMenuOptions() {
@@ -27,11 +29,17 @@ class NavBar extends React.Component {
     }
   }
 
+  linkToMainPage() {
+    this.props.history.push('/')
+    this.props.receiveMapIsActive(false);
+    this.props.receiveSearchStatus(false);
+  }
+
   render() {
     return (
       <div className="nav-bar">
         <div className="nav-bar-left">
-          <h1 onClick={() => this.props.history.push('/')}>A</h1>
+          <h1 onClick={this.linkToMainPage}>A</h1>
           <AutoCompleteContainer />
         </div>
         {this.getMenuOptions()}
