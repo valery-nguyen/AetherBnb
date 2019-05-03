@@ -7,7 +7,26 @@ class Profile extends React.Component {
   // }
 
   componentDidMount() {
-    this.props.fetchUserBookings(this.props.currentUserId);
+    let currentUserId = null;
+    if (this.props.currentUser.token) {
+      currentUserId = this.props.currentUser.token.id;
+    } else {
+      currentUserId = this.props.currentUser.id;
+    }
+    
+    this.props.fetchUserBookings(currentUserId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.history.location.pathname !== this.props.history.location.pathname) {
+      let currentUserId = null;
+      if (this.props.currentUser.token) {
+        currentUserId = this.props.currentUser.token.id;
+      } else {
+        currentUserId = this.props.currentUser.id;
+      }
+      this.props.fetchUserBookings(this.props.currentUserId);
+    }
   }
 
   render() {

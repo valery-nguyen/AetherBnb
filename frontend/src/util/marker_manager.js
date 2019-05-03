@@ -13,13 +13,13 @@ export default class MarkerManager {
     const spotsObj = {};
     spots.forEach(spot => spotsObj[spot._id] = spot);
 
-    spots
-      .filter(spot => !this.markers[spot._id])
-      .forEach(newSpot => this.createMarkerFromSpot(newSpot));
-
     Object.keys(this.markers)
       .filter(spotId => !spotsObj[spotId])
       .forEach((spotId) => this.removeMarker(this.markers[spotId]));
+    
+    spots
+      .filter(spot => !this.markers[spot._id])
+      .forEach(newSpot => this.createMarkerFromSpot(newSpot));
   }
 
   removeMarker(marker) {

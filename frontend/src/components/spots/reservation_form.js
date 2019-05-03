@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { DateRangePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
 var moment = require("moment");
 
 class ReservationForm extends React.Component {
@@ -13,7 +12,7 @@ class ReservationForm extends React.Component {
       endDate: null,
       guest_count: "",
       spot_id: this.props.spot._id,
-      user_id: ""
+      user_id: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.isDayBlocked = this.isDayBlocked.bind(this);
@@ -32,36 +31,54 @@ class ReservationForm extends React.Component {
   } 
 
   isDayBlocked(day) {
-      // let startDay;
-      // let endDay;
+     
       let calendarDay = day.calendar();
       let bookings = this.props.user.bookings;
       bookings = Object.values(bookings);
-      
+      let result = false;
+
       bookings.forEach( booking => {
-        
-        if(calendarDay === "05/11/2019") {
-         
-        }
-        let startDay = new Date(booking.start_date);
-        let startDayM = moment(startDay.toLocaleDateString()).calendar();
-        let endDay = new Date(booking.end_date);
-        let endDayM = moment(endDay.toLocaleDateString()).calendar();
-       
-        if (calendarDay >= startDayM && calendarDay <= endDayM) {
-          console.log(calendarDay);
-          return true;
-        }
+      
+        let startDay = moment(booking.start_date).calendar();
+        let endDay = moment(booking.end_date).calendar();
+       //console.log(`inside forEach loop: ${calendarDay}`);
+
+        if (calendarDay >= startDay && calendarDay <= endDay) {
+          //console.log(`returning true: ${calendarDay}`);
+          
+          result = true;
+       } 
       });
       
-    return false;
+      return result;
   }
 
   handleSubmit(e) {
     e.preventDefault();
     let bookingInfo = this.state;
-    bookingInfo.user_id = this.props.user.user_id;
-    this.props.createBooking(bookingInfo);
+    
+//     //check for booking conflicts
+//     let bookedStart = moment(new Date(bookingInfo.startDate.format()));
+//     let bookedEnd = bookingInfo.endDate.calendar();
+//     let hasBookingConflict = false;
+//     let bookings = this.props.user.bookings;
+//     bookings = Object.values(bookings);
+// debugger
+//      bookings.forEach(booking => {
+//        let startDay = moment(booking.start_date).calendar();
+//        let endDay = moment(booking.end_date).calendar();
+       
+//        //console.log(`inside forEach loop: ${calendarDay}`);
+      
+//        if (bookedStart < startDay && bookedEnd > endDay) {
+//          console.log(`booking conflict: ${startDay} ${endDay}`);
+//           debugger
+//          hasBookingConflict = true;
+//        }
+//      });
+      bookingInfo.user_id = this.props.user.user_id;
+      this.props.createBooking(bookingInfo);
+  
   }
 
   render() {
@@ -79,7 +96,7 @@ class ReservationForm extends React.Component {
             <label>Dates
             <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              isDayBlocked={this.isDayBlocked}
+              isDayBlocked={(day) => this.isDayBlocked(day)}
               startDateId="start-date-field" // PropTypes.string.isRequired,
               endDate={this.state.endDate} // momentPropTypes.momentObj or null,
               endDateId="end-date-field" // PropTypes.string.isRequired,
