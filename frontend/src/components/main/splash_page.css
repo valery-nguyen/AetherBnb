@@ -8,9 +8,9 @@
   margin: auto;
 }
 
-.leave-me-alone {
+.splash-page-title {
   top: 150px;
-  right: 0px;
+  right: 30px;
   font-size: 60px;
   position: fixed;
   z-index: 10;

@@ -1,0 +1,61 @@
+.profile {
+  margin-top: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+
+}
+
+.profile h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.profile h2 {
+  font-size: 30px;
+}
+
+.profile ul {
+  margin-top: 15px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile li {
+  width: 400px;
+  margin: 10px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  padding: 30px 40px 30px 40px;
+}
+
+.profile li button {
+  background-color: #FF5A5F;
+  color: white;
+  border-radius: 2px;
+  margin-top: 8px; 
+  padding: 8px;
+}
+
+.profile li button:hover {
+  cursor: pointer;
+
+}
+
+.profile-booking-delete-button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.bookings-photo{
+  margin: auto;
+  margin-bottom: 15px;
+  width:300px;
+  height:300px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}

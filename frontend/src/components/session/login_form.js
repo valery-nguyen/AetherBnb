@@ -12,7 +12,8 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
+    this.renderFieldErrors = this.renderFieldErrors.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,17 +42,32 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
+  // renderErrors() {
+  //   return (
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {this.state.errors[error]}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
+
+  renderFieldErrors(field) {
+    if(this.state.errors[field]) {
+      return (
+        <div className="error-div">
+          <h5 className="field-error">{this.state.errors[field]}</h5>
+        </div>
+      )
+    } else {
+      return (
+        <div className="error-div"/>
+      )
+    }
   }
+  
 
   render() {
     return (
@@ -67,16 +83,17 @@ class LoginForm extends React.Component {
               onChange={this.update('email')}
               placeholder="Email"
             />
-            <br />
+            {this.renderFieldErrors("email")}
+       
             <input type="password"
               className="modal-input-field"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
             />
-            <br />
+            {this.renderFieldErrors("password")}
+  
             <input className="session-modal-submit-button" type="submit" value="Submit" />
-            {this.renderErrors()}
             <div className="login-modal-lower-text">
               <h4>Don't have an account?</h4><h4 onClick={() => this.props.handleClick("signup-modal")} className="switch-between-modals">Sign up</h4>
             </div>

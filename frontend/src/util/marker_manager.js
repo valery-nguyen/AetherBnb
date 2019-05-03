@@ -31,8 +31,9 @@ export default class MarkerManager {
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      label: `$${spot.price}`,
+      label: { text: `$${spot.price}`, fontSize: "9px", fontWeight: "bold" },
       spotId: spot._id,
+      icon: {  }
       
     });
 

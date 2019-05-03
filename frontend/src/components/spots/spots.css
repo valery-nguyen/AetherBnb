@@ -7,13 +7,12 @@
   margin-top: 120px;
 }
 
-#outer-spots-div{
+#outer-spots-div {
   font-size: 16px;
-}
-#spots-list-container{
+  width: auto;
 }
 
-#spots-results-list{
+.spots-results-list {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
@@ -26,11 +25,19 @@
   margin-top: 115px;
 }
 
-#spots-results-list > p{
+.spots-results-list-column {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: auto;
+}
+
+#spots-results-list > p {
   margin: unset;
 }
 
-#spots-results-list a{
+#spots-results-list a {
   text-decoration: none;
   width: calc(18% - 10px);
   margin-left: 8px;
@@ -38,7 +45,7 @@
   margin-bottom: 30px;
 }
 
-.spot-list-item{
+.spot-list-item {
   /* margin-left: 9px; */
   margin-right: auto;
   margin-left: auto;
@@ -46,7 +53,7 @@
   /* width: calc(30vw - 18px); */
 
 } 
-#spot-list-photo-container{
+#spot-list-photo-container {
   width: auto;
   height: 160px; 
   overflow: hidden;
@@ -95,8 +102,8 @@
 
 .spotshow-photo-large{
    
-  width:50%;
-  height:100%;
+  width: 50%;
+  height: 100%;
   box-sizing: border-box;
   border: 1px solid darkgray;
 }
@@ -132,7 +139,6 @@
   font-size: 20px;
   font-weight: 600;
 }
-
 
 .spotshow-info-column{
   position: relative;
@@ -195,11 +201,82 @@
 .outer-map-div {
   position: fixed;
   right: 0px;
-  width: 500px;
+  width: 900px;
   height: 0px;
   z-index: 0;
 }
 
-.spots-index-map-active {
-  margin-right: 500px;
+#map-container {
+  height: 100vh;
+  width: 900px;
+  position: fixed;
+  right: 0;
+  margin-top: 118px;
 }
+
+.spots-index-map-active {
+  margin-right: 1000px;
+}
+
+.spot-list-item-m {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: auto;
+  height: 100%;
+  margin-bottom: -10px;
+}
+
+.m-spot-container {
+  display: flex;
+  width: 600%;
+  height: 200px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.spot-list-photo-container-m {
+  height: 50px;
+  width: 50px;
+}
+
+.spot-list-photo-m {
+  height: 200px;
+  width: 300px;
+}
+
+.spot-list-description-m {
+
+}
+
+.spot-list-price-m {
+
+}
+
+.spot-list-deets {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.spot-list-deets-desc {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.spot-list-deets-price {
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+
+
