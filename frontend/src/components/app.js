@@ -10,7 +10,7 @@ import ProfileContainer from './profile/profile_container';
 
 const App = () => (
   <div>
-    <NavBarContainer />
+    <NavBarContainer  />
     <div >
     <Switch>
       <Route exact path="/" component={MainPage} />

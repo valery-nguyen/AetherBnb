@@ -19,13 +19,15 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:spot_id', (req, res) => {
-  Booking.find({spot_id: req.params.spot_id})
+  Booking.find({spot_id: req.params.spot_id}).populate('')
     .then(bookings => {
       bookingHash = {};
 
       bookings.forEach((booking) => {
         bookingHash[booking._id] = booking;
+        console.log(`booking: ${bookingHash[booking._id]}`);
       });
+      
       return res.json(bookingHash);
     }
     )

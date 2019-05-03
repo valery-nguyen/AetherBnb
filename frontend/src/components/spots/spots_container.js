@@ -1,5 +1,10 @@
 import { connect } from 'react-redux';
 import { fetchSpots, fetchSpot } from '../../actions/spots_actions';
+import {
+  receiveSearchStatus,
+  receiveMapIsActive
+} from "../../actions/search_actions";
+
 import Spots from './spots';
 
 const mapStateToProps = state => ({
@@ -9,8 +14,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchSpots: (data) => dispatch(fetchSpots(data)),
-    fetchSpot: (id) => dispatch(fetchSpot(id))
+  fetchSpots: data => dispatch(fetchSpots(data)),
+  fetchSpot: id => dispatch(fetchSpot(id)),
+  receiveSearchStatus: active => dispatch(receiveSearchStatus(active))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Spots);

@@ -4,9 +4,15 @@ import ReservationForm from "./reservation_form";
 import { fetchSpotBookings } from "../../actions/bookings_actions";
 
 const mapStateToProps = (state, ownProps) => {
-
+  let user_id;
+  if(state.session.hasOwnProperty("user")) {
+    user_id = state.session.user.id;
+  } else {
+    user_id = "";
+  }
+   
   const user = {
-    user_id: state.session.user.id,
+    user_id: user_id,
     bookings: state.entities.bookings
   };
 

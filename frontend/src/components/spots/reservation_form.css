@@ -1,7 +1,8 @@
 .reserve-main{
   display: flex;
   justify-content: center;
-  width: 100%
+  width: 100%;
+  z-index: 20
 }
 #reserve-inner-container{
   display: flex;

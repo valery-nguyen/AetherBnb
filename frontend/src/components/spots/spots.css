@@ -4,7 +4,10 @@
   color: rgb(72, 72, 72);
   font-weight: 800;
   font-size: 24px;
-  margin-top: 120px;
+  margin-top: 130px;
+  width: auto;
+  display: flex;
+  justify-content: center;
 }
 
 #outer-spots-div{
@@ -15,15 +18,13 @@
 
 #spots-results-list{
   display: flex;
-  justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
   list-style-type: none;
   margin: 0;
-  justify-content: center;
-  margin-top: 115px;
+  margin-top: 20px;
 }
 
 #spots-results-list > p{
@@ -31,6 +32,8 @@
 }
 
 #spots-results-list a{
+  display: flex;
+  flex-direction: row;
   text-decoration: none;
   width: calc(18% - 10px);
   margin-left: 8px;
@@ -108,10 +111,11 @@
   border: 1px solid darkgray;
 } */
 #outer{
+  
   position: relative;
   display: flex;
   flex-direction: row;
-  height: 2000px;
+  height: 400px;
 }
 .check-in-box{
   font-family: sans-serif;
@@ -138,7 +142,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+
 }
 .spotshow-name{
   word-wrap: break-word;

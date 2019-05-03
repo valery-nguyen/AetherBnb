@@ -33,7 +33,6 @@ class NavBar extends React.Component {
     this.props.history.push('/');
     this.props.receiveMapIsActive(false);
     this.props.receiveSearchStatus(false);
-
   }
 
   render() {
