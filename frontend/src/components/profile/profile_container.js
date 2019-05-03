@@ -3,7 +3,7 @@ import Profile from './profile';
 import { fetchUserBookings, deleteBooking, fetchSpotBookings } from '../../actions/bookings_actions';
 
 const mapStateToProps = state => ({
-  currentUserId: state.session.user.id,
+  currentUser: state.session.user,
   bookings: Object.values(state.entities.bookings)
 });
 

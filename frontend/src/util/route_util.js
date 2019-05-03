@@ -7,7 +7,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
     !loggedIn ? (
       <Component {...props} />
     ) : (
-        <Redirect to="/home" /> //redirect to homepage
+        <Redirect to="/spots" /> //redirect to homepage
       )
   )} />
 );

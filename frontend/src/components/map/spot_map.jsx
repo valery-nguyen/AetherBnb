@@ -19,7 +19,7 @@ class SpotMap extends React.Component {
 
     let map = this.refs.map;
     window.map = this.map = new google.maps.Map(map, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
+    window.markerManager = this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
 
     this.map.addListener('bounds_changed', () => {
@@ -36,11 +36,6 @@ class SpotMap extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //temporary fix: valery
-    //working code below!
-    // if (!_.isEqual(prevProps.searchParams.location, this.props.searchParams.location)) {
-    //   this.MarkerManager.updateMarkers(this.props.spots);
-    // }
     if (!_.isEqual(prevProps.searchParams.location, this.props.searchParams.location)) {
       this.MarkerManager.updateMarkers(this.props.spots);
     } 

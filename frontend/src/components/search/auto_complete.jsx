@@ -48,10 +48,16 @@ class AutoComplete extends React.Component {
           priceRange: this.props.activeSearch.priceRange
         };
         this.props.fetchSpots(options).then(() => {
-          this.MarkerManager = new MarkerManager(window.map);
+          this.MarkerManager = window.markerManager;
           this.MarkerManager.updateMarkers(this.props.spots);
         });
       }
+    } else {
+        if (window.markerManager) {
+          this.MarkerManager = window.markerManager;
+          this.MarkerManager.updateMarkers(this.props.spots);
+        }
+
     }
   }
 
