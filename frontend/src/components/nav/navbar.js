@@ -17,22 +17,23 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="nav-menu">
-          <LoggedInNavMenuContainer/>
+          <LoggedInNavMenuContainer />
         </div>
       );
     } else {
       return (
         <div className="nav-menu">
-          <LoggedOutNavMenuContainer/>
+          <LoggedOutNavMenuContainer />
         </div>
       );
     }
   }
 
   linkToMainPage() {
-    this.props.history.push('/')
+    this.props.history.push('/');
     this.props.receiveMapIsActive(false);
     this.props.receiveSearchStatus(false);
+
   }
 
   render() {

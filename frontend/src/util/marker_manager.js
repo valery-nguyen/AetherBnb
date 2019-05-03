@@ -1,4 +1,3 @@
-import { createPopupClass } from './popup_util';
 const google = window.google;
 
 

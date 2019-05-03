@@ -74,6 +74,7 @@ class AutoComplete extends React.Component {
           window.locationObj = new google.maps.LatLng(lat, lng);
           window.map.panTo(window.locationObj);
         });
+        this.activateSearch();
       });
     } else {
       window.preventFetch = false;
@@ -114,7 +115,7 @@ class AutoComplete extends React.Component {
               <form onSubmit={(e) => {e.preventDefault();}}>
                 <input id="header-search-input"
                   {...getInputProps({
-                    placeholder: 'Search Spots ...',
+                    placeholder: 'Search Spots ... (try San Francisco)',
                     className: 'location-search-input',
                   })}
                 />
