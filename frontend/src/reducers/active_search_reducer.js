@@ -15,11 +15,8 @@ const defaultState = {
     minValue: 0,
     maxValue: 1000
   },
-  bounds: {
-    ne: { lat: 37.80848250669983, lng: -122.3904837615558 },
-    sw: { lat: 37.7862368999171, lng: -122.44259729632205 }
-  },
   location: new google.maps.LatLng(37.79736054067749, -122.41654052893894),
+  bounds: null,
   mapIsActive: false
 };
 

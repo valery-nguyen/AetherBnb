@@ -219,7 +219,7 @@
 #map-container {
   height: 100vh;
   width: calc(83vw - 300px);
-  position: fixed;
+  position: fixed !important;
   right: 0;
   margin-top: 118px;
   margin-left: 25px;

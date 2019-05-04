@@ -87,7 +87,8 @@ class AutoComplete extends React.Component {
         .then(results => getLatLng(results[0]))
         .then(latLng => {
           const location = latLng;
-          this.props.receiveLocation(location);
+          this.props.receiveLocation(new google.maps.LatLng(location.lat, location.lng));
+          // this.props.receiveLocation(location);
           this.activateSearch();
         })
         .catch(error => console.error('Error', error));
@@ -128,13 +129,6 @@ class AutoComplete extends React.Component {
                   })}
                 />
             </form>
-              {/* <input id="header-search-input"
-              onSubmit={()=>console.log("test")}
-              {...getInputProps({
-                placeholder: 'Search Places ...',
-                className: 'location-search-input',
-              })}
-              /> */}
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {

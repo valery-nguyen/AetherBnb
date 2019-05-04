@@ -28,7 +28,7 @@ export const fetchSpotBookings = spot_id => dispatch => {
 export const createBooking = data => dispatch => {
   return APIUtil.createBooking(data)
     .then(bookings => dispatch(receiveBookings(bookings)))
-    .catch(err => console.log(err));
+    .catch(err => dispatch(receiveBookingErrors(err)));
 };
 
 export const deleteBooking = id => dispatch => {

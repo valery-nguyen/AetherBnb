@@ -13,7 +13,7 @@ class SpotMap extends React.Component {
 
   componentDidMount() {
     let mapOptions = {
-      center: this.props.searchParams.location, 
+      center: this.props.searchParams.location,
       zoom: 14
     };
 
@@ -21,7 +21,6 @@ class SpotMap extends React.Component {
     window.map = this.map = new google.maps.Map(map, mapOptions);
     window.markerManager = this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.spots);
-
     this.map.addListener('bounds_changed', () => {
       let mapBounds = this.map.getBounds();
       let southWest = mapBounds.getSouthWest();

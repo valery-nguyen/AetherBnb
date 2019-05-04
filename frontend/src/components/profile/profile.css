@@ -19,10 +19,13 @@
 
 .profile ul {
   margin-top: 15px;
-  width: 500px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+
 }
 
 .profile li {

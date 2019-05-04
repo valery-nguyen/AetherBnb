@@ -1,8 +1,9 @@
 .reserve-main{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  z-index: 20
+  z-index: 0;
 }
 #reserve-inner-container{
   display: flex;
@@ -40,6 +41,7 @@
     color: white;
     border-radius: 3px;
     text-align: center;
+    margin-bottom: 30px;
 }
 #reservation-submit-button:hover{
   cursor: pointer;
@@ -51,4 +53,16 @@
     width: 100%;
     margin-top: 15px !important;
     margin-bottom: 15px !important;
+}
+
+#messages-success{
+ height: auto;
+  color: green;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+#messages-errors{
+  height: auto;
+  color: red;
 }
