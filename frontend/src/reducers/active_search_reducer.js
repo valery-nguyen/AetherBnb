@@ -1,8 +1,9 @@
 import { RECEIVE_MAP_IS_ACTIVE, RECEIVE_DATE_RANGE, RECEIVE_PRICE_RANGE, RECEIVE_GUEST_COUNT, RECEIVE_SEARCH_STATUS, RECEIVE_BOUNDS, RECEIVE_LOCATION } from './../actions/search_actions';
 import { merge } from 'lodash';
+const google = window.google;
 
-const defaultState = { 
-  active: false, 
+const defaultState = {
+  active: false,
   startDate: null,
   endDate: null,
   guestCount: {
@@ -14,8 +15,11 @@ const defaultState = {
     minValue: 0,
     maxValue: 1000
   },
-  bounds: null,
-  location: null,
+  bounds: {
+    ne: { lat: 37.80848250669983, lng: -122.3904837615558 },
+    sw: { lat: 37.7862368999171, lng: -122.44259729632205 }
+  },
+  location: new google.maps.LatLng(37.79736054067749, -122.41654052893894),
   mapIsActive: false
 };
 
