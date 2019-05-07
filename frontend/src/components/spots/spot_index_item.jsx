@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const SpotIndexItem = ({spot, mapIsActive}) => {
   if ( mapIsActive ) {
-    return (<Link key={spot._id} to={`/spot/${spot._id}`}>
+    return (<Link className="spots-results-list-c" key={spot._id} to={`/spot/${spot._id}`}>
     <li key={spot._id} className="spot-list-item-m">
 
       <div className="m-spot-container">
@@ -27,7 +27,7 @@ export const SpotIndexItem = ({spot, mapIsActive}) => {
 
   } else {
     return (
-      <Link key={spot._id} to={`/spot/${spot._id}`}>
+      <Link className="spots-results-list-r" key={spot._id} to={`/spot/${spot._id}`}>
         <div>
           <li key={spot._id} className="spot-list-item">
             <div id="spot-list-photo-container">
