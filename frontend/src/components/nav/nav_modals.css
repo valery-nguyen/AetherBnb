@@ -1,3 +1,20 @@
+.guest-login-container {
+  display: flex;
+  justify-content: center;
+}
+
+.guest-login {
+  background-color: rgb(69, 104, 178);
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
+  height: 48px;
+  width: 450px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+
 .signup-modal {
   display: none;
 }

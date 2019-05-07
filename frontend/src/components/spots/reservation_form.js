@@ -79,7 +79,7 @@ class ReservationForm extends React.Component {
     e.preventDefault();
     let temp = null;
     let bookingInfo = this.state;
-    
+    debugger
       bookingInfo.user_id = this.props.user.user_id;
       
 

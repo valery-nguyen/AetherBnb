@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ReservationFormContainer from './reservation_form_container';
-var moment = require("moment");
 
 class SpotShow extends React.Component {
   componentDidMount() {

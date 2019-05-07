@@ -14,6 +14,7 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.renderErrors = this.renderErrors.bind(this);
     this.renderFieldErrors = this.renderFieldErrors.bind(this);
+    this.guestLogIn = this.guestLogIn.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,6 +38,17 @@ class LoginForm extends React.Component {
     let user = {
       email: this.state.email,
       password: this.state.password
+    };
+
+    this.props.login(user);
+  }
+
+  guestLogIn(e) {
+    e.preventDefault();
+
+    let user = {
+      email: 'valery@gmail.com',
+      password: 'california'
     };
 
     this.props.login(user);
@@ -97,7 +109,11 @@ class LoginForm extends React.Component {
             <div className="login-modal-lower-text">
               <h4>Don't have an account?</h4><h4 onClick={() => this.props.handleClick("signup-modal")} className="switch-between-modals">Sign up</h4>
             </div>
+            <div className="guest-login-container">
+              <button className="guest-login" onClick={this.guestLogIn}> Guest Log In </button>
+            </div>
           </div>
+
         </form>
         <div onClick={() => this.props.handleClick("login-modal")} className="modal-underlay"></div>
       </div>

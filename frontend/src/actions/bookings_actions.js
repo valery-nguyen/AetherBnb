@@ -1,10 +1,16 @@
 import * as APIUtil from '../util/bookings_api_util';
 export const RECEIVE_BOOKINGS = "RECEIVE_BOOKINGS";
 export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS";
+export const RECEIVE_DELETED_BOOKING = 'RECEIVE_DELETED_BOOKING';
 
 export const receiveBookings = bookings => ({
   type: RECEIVE_BOOKINGS,
   bookings
+});
+
+export const receiveDeletedBooking = booking => ({
+  type: RECEIVE_DELETED_BOOKING,
+  booking
 });
 
 export const receiveBookingErrors = err => ({
@@ -33,6 +39,6 @@ export const createBooking = data => dispatch => {
 
 export const deleteBooking = id => dispatch => {
   return APIUtil.deleteBooking(id)
-    .then(bookings => dispatch(receiveBookings(bookings)))
+    .then(booking => dispatch(receiveDeletedBooking(booking)))
     .catch(err => console.log(err));
 };

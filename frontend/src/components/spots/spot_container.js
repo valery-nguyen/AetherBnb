@@ -3,7 +3,6 @@ import { fetchSpots, fetchSpot } from "../../actions/spots_actions";
 import { fetchSpotBookings } from "../../actions/bookings_actions";
 import {
   receiveSearchStatus,
-  receiveMapIsActive
 } from "../../actions/search_actions";
 
 import SpotShow from "./spot_show";

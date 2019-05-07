@@ -42,6 +42,7 @@ router.post('/create', (req, res) => {
     end_date: new Date(req.body.endDate).setHours(0, 0, 0, 0),
     created_at: new Date()
   });
+ 
   //check if available for booking
   Booking.find({
     spot_id: newBooking.spot_id,
@@ -51,12 +52,23 @@ router.post('/create', (req, res) => {
     if (conflictingBookings.length === 0) {
       newBooking
       .save()
-      .then(booking => {
-        bookingHash = {};
-        bookingHash[booking._id] = booking;
-        return res.json(bookingHash);
-        })
-      .catch(err => res.status(404).json({ nobookingcreated: 'Could not create this booking!' }));
+      .then(() => {
+        Booking.find({
+          spot_id: newBooking.spot_id
+        }).then(bookings => {
+          bookingHash = {};
+          bookings.forEach(booking => {
+            bookingHash[booking._id] = booking;
+          });
+          return res.json(bookingHash);
+        });
+      })
+      // .then(booking => {
+      //   bookingHash = {};
+      //   bookingHash[booking._id] = booking;
+      //   return res.json(bookingHash);
+      //   })
+      .catch(err => {console.log(err);res.status(404).json({ nobookingcreated: 'Could not create this booking!' });});
     }
     else {
       res.status(404).json({ nobookingcreated: 'Could not create this booking!' });
@@ -67,18 +79,9 @@ router.post('/create', (req, res) => {
 router.delete('/:booking_id', (req, res) => {
   Booking.findById(req.params.booking_id)
     .then(booking => {
-        booking.remove().then(() => {
-          Booking.find()
-            .then(bookings => {
-              bookingHash = {};
-
-              bookings.forEach((booking) => {
-                bookingHash[booking._id] = booking;
-              });
-              return res.json(bookingHash);
-            }
-          )}
-        );
+        booking.remove().then(deletedBooking => {
+          return res.json(deletedBooking);
+        });
       }
     )
     .catch(err =>

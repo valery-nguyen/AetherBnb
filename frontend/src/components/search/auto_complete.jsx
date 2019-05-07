@@ -7,7 +7,6 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 import './auto_complete.css';
 import _ from 'lodash';
-import MarkerManager from './../../util/marker_manager';
 
 const google = window.google;
 
@@ -121,9 +120,6 @@ class AutoComplete extends React.Component {
               <form onSubmit={(e) => {e.preventDefault();}}>
                 <input id="header-search-input"
                   {...getInputProps({
-                    placeholder: 'Search Spots ... (try San Francisco)',
-                    placeholder: 'Search Spots ... (try San Francisco)',
-                    placeholder: 'Search Spots ... (try San Francisco)',
                     placeholder: 'Search Spots ... (try San Francisco)',
                     className: 'location-search-input',
                   })}

@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchSpots, fetchSpot } from '../../actions/spots_actions';
 import {
-  receiveSearchStatus,
-  receiveMapIsActive
+  receiveSearchStatus
 } from "../../actions/search_actions";
 
 import Spots from './spots';
