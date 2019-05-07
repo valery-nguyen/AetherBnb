@@ -1,4 +1,5 @@
-module.exports = {
-  mongoURI: 'mongodb+srv://creitman:asdf1234@mern-sezpv.mongodb.net/database?retryWrites=true',
-  secretOrKey: 'C6ypcZ_TSc*)q]Gzwd*c!T"H,|+mzP',
-};
+if (process.env.NODE_ENV === 'production') {
+	  module.exports = require('./keys_prod');
+	} else {
+	  module.exports = require('./keys_dev');
+	}
