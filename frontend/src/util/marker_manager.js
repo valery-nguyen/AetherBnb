@@ -1,3 +1,4 @@
+import React from 'react';
 const google = window.google;
 
 
@@ -6,6 +7,8 @@ export default class MarkerManager {
     this.map = map;
     this.markers = {};
     this.removeMarker = this.removeMarker.bind(this);
+    this.updateInfoWindow = this.updateInfoWindow.bind(this);
+    this.infoWindow = new google.maps.InfoWindow({});
   }
 
   updateMarkers(spots) {
@@ -15,7 +18,7 @@ export default class MarkerManager {
     Object.keys(this.markers)
       .filter(spotId => !spotsObj[spotId])
       .forEach((spotId) => this.removeMarker(this.markers[spotId]));
-    
+
     spots
       .filter(spot => !this.markers[spot._id])
       .forEach(newSpot => this.createMarkerFromSpot(newSpot));
@@ -26,9 +29,15 @@ export default class MarkerManager {
     delete this.markers[marker.spotId];
   }
 
+  updateInfoWindow(content, marker) {
+    this.infoWindow.setContent(content);
+    this.infoWindow.open(this.map, marker);
+  }
+
   createMarkerFromSpot(spot) {
     const position = { lat: spot.lat, lng: spot.lng };
     var contentString =
+      `<a href="/login#/spot/${spot._id}">` +
       '<div id="content">' +
       '<div id="siteNotice">' +
       "</div >" +
@@ -39,13 +48,11 @@ export default class MarkerManager {
         spot.name
       }</b></h1>` +
       '<div id="bodyContent">' +
-      `<p><b>$${spot.price} per night</b></p>` +
+      `<p>$${spot.price} per night</p>` +
       "</div>" +
-      "</div>";
-
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
+      "</div>" +
+      '</a>';
+ 
 
     const marker = new google.maps.Marker({
       position,
@@ -57,8 +64,9 @@ export default class MarkerManager {
       },
       spotId: spot._id
     });
-    marker.addListener("click", function() {
-      infowindow.open(this.map, marker);
+
+    marker.addListener("click", () => {
+      this.updateInfoWindow(contentString, marker);
     });
     this.markers[marker.spotId] = marker;
   }
