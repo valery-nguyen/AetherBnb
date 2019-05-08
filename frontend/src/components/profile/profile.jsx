@@ -62,11 +62,11 @@ class Profile extends React.Component {
                 <p>Booking Confirmation: {booking._id}</p>
                 <p>
                   Booked on: {createdAt.getMonth() + 1}/
-                  {createdAt.getDate() + 1}/{createdAt.getFullYear()}
+                  {createdAt.getDate()}/{createdAt.getFullYear()}
                 </p>
                 <p>
                   From: {startDate.getMonth() + 1}/
-                  {startDate.getDate() + 1}/{startDate.getFullYear()}
+                  {startDate.getDate()}/{startDate.getFullYear()}
                 </p>
                 <p>
                   Until: {endDate.getMonth() + 1}/
