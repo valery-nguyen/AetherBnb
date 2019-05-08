@@ -1,11 +1,20 @@
 .splash-page {
-  height: 100%;
-  width: 100%;
-  min-height: 900px;
-  margin-top: 32px;
-  background-repeat:   no-repeat;
-  background-position: center center; 
-  margin: auto;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+
+}
+
+.splash-page-img {
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: top left; 
+  background-image: url('bg.jpg');
+  background-size: calc(100% * 100vh / 100vw);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .splash-page-title {
