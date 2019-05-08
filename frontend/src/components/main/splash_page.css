@@ -12,7 +12,7 @@
   background-repeat: no-repeat;
   background-position: top left; 
   background-image: url('bg.jpg');
-  background-size: calc(100% * 100vh / 100vw);
+  background-size: calc(100% * 100vh);
   overflow: hidden;
   box-sizing: border-box;
 }
