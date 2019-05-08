@@ -35,7 +35,7 @@ export default class MarkerManager {
   createMarkerFromSpot(spot) {
     const position = { lat: spot.lat, lng: spot.lng };
     var contentString =
-      `<a href="/login#/spot/${spot._id}">` +
+      `<a href="/#/spot/${spot._id}">` +
       '<div id="content">' +
       '<div id="siteNotice">' +
       "</div >" +
