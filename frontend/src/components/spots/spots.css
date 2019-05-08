@@ -35,10 +35,6 @@
   width: auto;
 }
 
-.spots-results-list-column a {
-  width: 100%;
-}
-
 #spots-results-list > p {
   margin: unset;
 }
@@ -53,7 +49,7 @@
 
 .spots-results-list-c {
   text-decoration: none;
-  width: calc(18% - 10px);
+  width: calc(40vw);
   margin-left: 8px;
   margin-right: 8px;
   margin-bottom: 30px;
@@ -233,7 +229,7 @@
 
 #map-container {
   height: 100vh;
-  width: calc(75vw - 300px);
+  width: 55%;
   position: fixed !important;
   right: 0;
   margin-top: 118px;
@@ -249,7 +245,7 @@
   justify-content: center;
   flex-direction: column;
   /* width: auto; */
-  height: 100%;
+  height: calc(40vw / 3);
   margin-bottom: -10px;
 }
 
@@ -262,20 +258,21 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.spot-list-photo-container-m {
-  height: 50px;
-  width: 50px;
+#spot-list-photo-container-m {
+  width: 50%; 
 }
 
 .spot-list-photo-m {
   border-radius: 3px;
   height: 100%;
-  width: 300px;
+  width: 100%;
 }
 
 .spot-list-description-m {
-  width: 200px;
+  width: auto;
   font-size: 18px;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .spot-list-price-m {
@@ -283,22 +280,26 @@
 }
 
 .spot-list-deets {
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
   color: #484848;
 }
 
 .spot-list-deets-desc {
-  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 14px;
-  width: 240px;
+  width: auto;
 }
 
 .spot-list-deets-price {
-  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 5px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;

@@ -53,23 +53,22 @@ class ReservationForm extends React.Component {
 
   }
   isDayBlocked(day) {
-     
       let calendarDay = day.calendar();
       let bookings = this.props.user.bookings;
       bookings = Object.values(bookings);
       let result = false;
 
-      bookings.forEach( booking => {
+      calendarDay = String(day.month() + 1).concat("/", day.date() + 1, "/", day.year())
       
-        let startDay = moment(booking.start_date).calendar();
-        let endDay = moment(booking.end_date).calendar();
-       //console.log(`inside forEach loop: ${calendarDay}`);
+      bookings.forEach( booking => {
+      let startDay = moment(booking.start_date);
+      let endDay = moment(booking.end_date);
+      let CstartDay = String(startDay.month() + 1).concat("/", startDay.date() + 1, "/", startDay.year());
+      let CendDay = String(endDay.month() + 1).concat("/", endDay.date() + 1, "/", endDay.year());
 
-        if (calendarDay >= startDay && calendarDay <= endDay) {
-          //console.log(`returning true: ${calendarDay}`);
-          
-          result = true;
-       } 
+      if (calendarDay >= CstartDay && calendarDay <= CendDay) {
+        result = true;
+      } 
       });
       
       return result;
@@ -79,9 +78,9 @@ class ReservationForm extends React.Component {
     e.preventDefault();
     let temp = null;
     let bookingInfo = this.state;
-    debugger
+    
       bookingInfo.user_id = this.props.user.user_id;
-      
+      debugger
 
       this.props.createBooking(bookingInfo).then(result => {
         temp = result;
@@ -162,23 +161,3 @@ class ReservationForm extends React.Component {
 }
 
 export default withRouter(ReservationForm);
-
-//     //check for booking conflicts
-//     let bookedStart = moment(new Date(bookingInfo.startDate.format()));
-//     let bookedEnd = bookingInfo.endDate.calendar();
-//     let hasBookingConflict = false;
-//     let bookings = this.props.user.bookings;
-//     bookings = Object.values(bookings);
-// debugger
-//      bookings.forEach(booking => {
-//        let startDay = moment(booking.start_date).calendar();
-//        let endDay = moment(booking.end_date).calendar();
-       
-//        //console.log(`inside forEach loop: ${calendarDay}`);
-      
-//        if (bookedStart < startDay && bookedEnd > endDay) {
-//          console.log(`booking conflict: ${startDay} ${endDay}`);
-//           debugger
-//          hasBookingConflict = true;
-//        }
-//      });

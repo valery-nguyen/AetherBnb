@@ -1,6 +1,4 @@
-import React from 'react';
 const google = window.google;
-
 
 export default class MarkerManager {
   constructor(map) {

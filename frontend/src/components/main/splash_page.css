@@ -13,9 +13,8 @@
   right: 30px;
   font-size: 60px;
   position: fixed;
-  z-index: 10;
+  z-index: 0;
   color: white;
   min-width: 700px;
   font-style: italic;
-  opacity: .7;
 }
