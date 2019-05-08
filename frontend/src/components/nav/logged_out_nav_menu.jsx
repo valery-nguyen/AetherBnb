@@ -11,7 +11,8 @@ class LoggedOutNavMenu extends React.Component {
   }
   
   handleClick(id) {
-    if (this.activeModal === id) {
+    if (this.activeModal === id ||
+      document.getElementById("login-modal").className.split(' ')[1] === "show-session-modal") {
       this.closeModal(id);
       this.activeModal = null;
       this.toggleOverlay();
