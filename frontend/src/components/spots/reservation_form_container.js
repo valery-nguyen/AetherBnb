@@ -5,10 +5,15 @@ import { fetchSpotBookings } from "../../actions/bookings_actions";
 
 const mapStateToProps = (state, ownProps) => {
   let user_id;
-  if(state.session.hasOwnProperty("user")) {
-    user_id = state.session.user.id;
+
+  if(state.session.user) {
+    if (state.session.user.token) {
+      user_id = state.session.user.token.id;
+    } else {
+      user_id = state.session.user.id;
+    }
   } else {
-    user_id = "";
+    user_id = '';
   }
    
   const user = {

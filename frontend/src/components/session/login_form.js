@@ -12,17 +12,11 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this);
     this.renderFieldErrors = this.renderFieldErrors.bind(this);
     this.guestLogIn = this.guestLogIn.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      // this.props.history.push('/');
-      //push to homepage after login
-    }
-
     this.setState({ errors: nextProps.errors });
   }
 
@@ -54,18 +48,6 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  // renderErrors() {
-  //   return (
-  //     <ul>
-  //       {Object.keys(this.state.errors).map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {this.state.errors[error]}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-
   renderFieldErrors(field) {
     if(this.state.errors[field]) {
       return (
@@ -79,7 +61,6 @@ class LoginForm extends React.Component {
       )
     }
   }
-  
 
   render() {
     return (

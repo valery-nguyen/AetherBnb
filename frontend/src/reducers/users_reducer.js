@@ -3,11 +3,7 @@ import {
   RECEIVE_USER_SIGN_IN
 } from '../actions/session_actions';
 
-const initialState = {
-  
-};
-
-export default function (state = initialState, action) {
+export default function (state = {}, action) {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:

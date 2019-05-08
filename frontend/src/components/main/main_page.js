@@ -4,7 +4,6 @@ import './splash_page.css'
 class MainPage extends React.Component {
 
   render() {
-    // debugger;
     return (
       <div className="splash-page">
         <h1 className="splash-page-title" >Your home away from home...</h1>

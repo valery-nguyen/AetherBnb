@@ -27,7 +27,7 @@ class LoggedOutNavMenu extends React.Component {
   };
 
   closeModal(id) {
-    let modal = document.getElementById(id);
+    let modal = document.getElementById(id) || document.getElementById("login-modal");
     modal.classList.remove('show-session-modal');
   }
 

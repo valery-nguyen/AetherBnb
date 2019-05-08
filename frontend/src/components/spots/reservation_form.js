@@ -18,16 +18,12 @@ class ReservationForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.isDayBlocked = this.isDayBlocked.bind(this);
   }
-  // componentDidUpdate() {
-   
-  // }
+
   componentDidMount() {
-    
     this.props.fetchSpotBookings(this.props.spot._id);
   }
 
   update(field) {
-    
     return e => this.setState({ [field]: e.currentTarget.value });
   } 
 
@@ -49,23 +45,19 @@ class ReservationForm extends React.Component {
         ]
       });
     }
-    
-
   }
+
   isDayBlocked(day) {
       let calendarDay = day.calendar();
       let bookings = this.props.user.bookings;
       bookings = Object.values(bookings);
       let result = false;
-
       calendarDay = String(day.month() + 1).concat("/", day.date() + 1, "/", day.year())
-      
       bookings.forEach( booking => {
       let startDay = moment(booking.start_date);
       let endDay = moment(booking.end_date);
       let CstartDay = String(startDay.month() + 1).concat("/", startDay.date() + 1, "/", startDay.year());
       let CendDay = String(endDay.month() + 1).concat("/", endDay.date() + 1, "/", endDay.year());
-
       if (calendarDay >= CstartDay && calendarDay <= CendDay) {
         result = true;
       } 
@@ -76,32 +68,32 @@ class ReservationForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let temp = null;
-    let bookingInfo = this.state;
+    if(this.props.user.user_id !== '') {
+      let temp = null;
+      let bookingInfo = this.state;
     
       bookingInfo.user_id = this.props.user.user_id;
-      debugger
-
       this.props.createBooking(bookingInfo).then(result => {
         temp = result;
         if(temp.type === "RECEIVE_BOOKINGS") {
-          
           if(temp.bookings.status === 200) {
             this.renderResponseMessages({
               type: "success",
             })
           }
-          
         } else if(temp.type === "RECEIVE_BOOKING_ERRORS") {
-          
           this.renderResponseMessages({
             type: temp.type,
             body: Object.values(temp.err.response.data)
           });
         }
-        
       });
-      
+    } else {
+      let modal = document.getElementById("login-modal");
+      modal.classList.add('show-session-modal');
+      let modalUnderlay = document.getElementById("modal-underlay");
+      modalUnderlay.classList.toggle('show-modal-underlay');
+    }
   }
 
   render() {
