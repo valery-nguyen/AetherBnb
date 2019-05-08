@@ -100,7 +100,7 @@ class ReservationForm extends React.Component {
     if (!this.props.spot) return (<div></div>)
 
     return (
-      <div>
+      
         <div className="reserve-main">
           <div id="reserve-inner-container">
             <div id="reserve-price">
@@ -142,12 +142,11 @@ class ReservationForm extends React.Component {
                 value="Book"
               />
             </form>
+            
           </div>
-          
-            {this.state.response_messages}
-          
+        {this.state.response_messages}
         </div>
-      </div>
+      
     );
   }
 }
