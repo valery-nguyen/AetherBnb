@@ -112,18 +112,18 @@ class ReservationForm extends React.Component {
               <label>
                 Dates
                 <DateRangePicker
-                  startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                  startDate={this.state.startDate} 
                   isDayBlocked={day => this.isDayBlocked(day)}
-                  startDateId="start-date-field" // PropTypes.string.isRequired,
-                  endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                  endDateId="end-date-field" // PropTypes.string.isRequired,
+                  startDateId="start-date-field" 
+                  endDate={this.state.endDate} 
+                  endDateId="end-date-field" 
                   onDatesChange={({ startDate, endDate }) =>
                     this.setState({ startDate, endDate })
-                  } // PropTypes.func.isRequired,
-                  focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                  } 
+                  focusedInput={this.state.focusedInput}
                   onFocusChange={focusedInput =>
                     this.setState({ focusedInput })
-                  } // PropTypes.func.isRequired,
+                  } 
                 />
               </label>
               <label>
@@ -133,7 +133,7 @@ class ReservationForm extends React.Component {
                   className="reserve-guests"
                   onChange={this.update("guest_count")}
                   type="text"
-                  placeholder="enter # of guests"
+                  placeholder="enter number of guests"
                 />
               </label>
               <input

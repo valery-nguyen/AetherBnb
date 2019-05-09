@@ -12,14 +12,14 @@
   background-repeat: no-repeat;
   background-position: top left; 
   background-image: url('bg.jpg');
-  background-size: calc(100% * 100vh);
+  background-size: cover;
   overflow: hidden;
   box-sizing: border-box;
 }
 
 .splash-page-title {
-  top: 150px;
-  right: 30px;
+  top: 100px;
+  left: 50px;
   font-size: 60px;
   position: fixed;
   z-index: 0;

@@ -87,7 +87,6 @@ class AutoComplete extends React.Component {
         .then(latLng => {
           const location = latLng;
           this.props.receiveLocation(new google.maps.LatLng(location.lat, location.lng));
-          // this.props.receiveLocation(location);
           this.activateSearch();
         })
         .catch(error => console.error('Error', error));
@@ -131,7 +130,6 @@ class AutoComplete extends React.Component {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
                   : 'suggestion-item';
-                // inline style for demonstration purpose
                 const style = suggestion.active
                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };

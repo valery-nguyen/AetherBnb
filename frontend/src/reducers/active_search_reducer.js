@@ -20,7 +20,6 @@ const defaultState = {
   mapIsActive: false
 };
 
-//this slice of state is not persisting!
 
 const ActiveSearchReducer = (state = defaultState, action) => {
   Object.freeze(state);
@@ -28,7 +27,6 @@ const ActiveSearchReducer = (state = defaultState, action) => {
     case RECEIVE_DATE_RANGE:
       return merge({}, state, action.dateRange);
     case RECEIVE_PRICE_RANGE:
-      // return merge({}, state, action.priceRange); //to remove: Valery
       return merge({}, state, { priceRange: action.priceRange });
     case RECEIVE_GUEST_COUNT:
       return merge({}, state, { guestCount: action.count });

@@ -4,9 +4,6 @@ import { SpotIndexItem } from './spot_index_item';
 import MapContainer from './../map/spot_map_container';
 
 class Spots extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   componentDidMount() {
     this.props.fetchSpots();
