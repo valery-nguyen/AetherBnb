@@ -1,16 +1,10 @@
-
 FROM node:8.16.0-alpine
 
-WORKDIR /myapp
+WORKDIR /app
 
-ARG NODE_ENV=production
+COPY . .
 
-COPY package.json /usr/src/app/package.json
-
-RUN npm install --silent
-
-COPY . /myapp
-
-EXPOSE 80
+RUN npm install --silent \
+  && npm run heroku-postbuild
 
 CMD ["npm", "start"]
