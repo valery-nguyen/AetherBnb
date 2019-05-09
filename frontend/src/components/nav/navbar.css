@@ -59,9 +59,10 @@
     display: flex;
     justify-content: space-evenly;
     height: 64px;
+    margin-right: -10px;
 }
 
-.nav-menu-button{
+.nav-menu-button {
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   font-size: 14px;
   font-weight: 400;
@@ -70,12 +71,11 @@
   height: 62px !important;
   padding-left: 5px;
   padding-right: 5px;
-  margin-left: 5px;
   margin-right: 5px;
   height: 100%;
   font-weight: bold;
   box-sizing: content-box;
-
+  min-width: 55px;
 }
 
 .nav-menu-button:hover {
@@ -89,8 +89,10 @@
 }
 
 .nav-bar-left h1 {
-    font-size: 45px;
+    font-size: 42px;
+    color: #484848;
     font-weight: bold;
+
 }
 
 .nav-bar-left h1:hover {

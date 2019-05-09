@@ -43,7 +43,6 @@ router.post('/create', (req, res) => {
     created_at: new Date()
   });
  
-  //check if available for booking
   Booking.find({
     spot_id: newBooking.spot_id,
     start_date: { $lt: newBooking.end_date },
@@ -63,11 +62,7 @@ router.post('/create', (req, res) => {
           return res.json(bookingHash);
         });
       })
-      // .then(booking => {
-      //   bookingHash = {};
-      //   bookingHash[booking._id] = booking;
-      //   return res.json(bookingHash);
-      //   })
+
       .catch(err => {console.log(err);res.status(404).json({ nobookingcreated: 'Could not create this booking!' });});
     }
     else {

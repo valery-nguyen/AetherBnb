@@ -1,4 +1,3 @@
-// node bookings_seed.js
 
 const db = require('../config/keys').mongoURI;
 const mongoose = require('mongoose');
