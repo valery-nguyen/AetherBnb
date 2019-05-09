@@ -1,0 +1,50 @@
+version: "2"
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --noauth --smallfiles
+    networks:
+      - webappnetwork
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: webapp-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    environment:
+      - NODE_ENV=development
+    # links:
+    #   - api
+    networks:
+      - webappnetwork
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    image: webapp-web
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/myapp
+      - /myapp/node_modules
+    depends_on:
+      - mongodb
+    networks:
+      - webappnetwork
+
+networks:
+  webappnetwork:
+    driver: bridge      
